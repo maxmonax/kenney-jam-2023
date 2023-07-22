@@ -173,6 +173,220 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">game/asteroids/meteorBrown_big1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,21,51,42</rect>
+                <key>scale9Paddings</key>
+                <rect>25,21,51,42</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_big2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>30,25,60,49</rect>
+                <key>scale9Paddings</key>
+                <rect>30,25,60,49</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_big3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,21,45,41</rect>
+                <key>scale9Paddings</key>
+                <rect>22,21,45,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_big4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,24,49,48</rect>
+                <key>scale9Paddings</key>
+                <rect>25,24,49,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_med1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,11,21,21</rect>
+                <key>scale9Paddings</key>
+                <rect>11,11,21,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_med3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,10,23,20</rect>
+                <key>scale9Paddings</key>
+                <rect>11,10,23,20</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_small1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>7,7,14,14</rect>
+                <key>scale9Paddings</key>
+                <rect>7,7,14,14</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_small2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>7,7,15,13</rect>
+                <key>scale9Paddings</key>
+                <rect>7,7,15,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_tiny1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/asteroids/meteorBrown_tiny2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,7</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,7</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/bullets/laserBlue01.png</key>
+            <key type="filename">game/bullets/laserRed01.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,14,5,27</rect>
+                <key>scale9Paddings</key>
+                <rect>2,14,5,27</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/bullets/laserBlue02.png</key>
+            <key type="filename">game/bullets/laserRed02.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>3,9,7,19</rect>
+                <key>scale9Paddings</key>
+                <rect>3,9,7,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/bullets/laserBlue03.png</key>
+            <key type="filename">game/bullets/laserRed03.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,9,5,19</rect>
+                <key>scale9Paddings</key>
+                <rect>2,9,5,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/bullets/spaceMissiles_001.png</key>
+            <key type="filename">game/bullets/spaceMissiles_002.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,17,20,35</rect>
+                <key>scale9Paddings</key>
+                <rect>10,17,20,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/effects/fire00.png</key>
             <key type="filename">game/effects/fire08.png</key>
             <key type="filename">game/effects/fire09.png</key>
@@ -597,6 +811,7 @@
                 <false/>
             </struct>
             <key type="filename">game/enemies/spaceShips_001.png</key>
+            <key type="filename">game/hero/level_3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -612,6 +827,7 @@
                 <false/>
             </struct>
             <key type="filename">game/enemies/spaceShips_002.png</key>
+            <key type="filename">game/hero/level_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -627,6 +843,7 @@
                 <false/>
             </struct>
             <key type="filename">game/enemies/spaceShips_003.png</key>
+            <key type="filename">game/hero/level_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -687,6 +904,7 @@
                 <false/>
             </struct>
             <key type="filename">game/enemies/spaceShips_007.png</key>
+            <key type="filename">game/hero/level_5.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -702,6 +920,7 @@
                 <false/>
             </struct>
             <key type="filename">game/enemies/spaceShips_008.png</key>
+            <key type="filename">game/hero/level_4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -731,7 +950,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/ship_1.png</key>
+            <key type="filename">game/powerup.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -740,13 +959,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>24,25,47,50</rect>
+                <rect>9,8,17,17</rect>
                 <key>scale9Paddings</key>
-                <rect>24,25,47,50</rect>
+                <rect>9,8,17,17</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/station_1.png</key>
+            <key type="filename">game/station/level_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -755,9 +974,39 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>250,250,500,500</rect>
+                <rect>132,131,263,262</rect>
                 <key>scale9Paddings</key>
-                <rect>250,250,500,500</rect>
+                <rect>132,131,263,262</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/blue.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9Paddings</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/btnPlay.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>56,56,111,111</rect>
+                <key>scale9Paddings</key>
+                <rect>56,56,111,111</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

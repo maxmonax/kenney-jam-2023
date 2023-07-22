@@ -12,6 +12,9 @@ export const Config = {
     GH_SAFE: 1080,
 
     TAP_TO_START: true,
-    DRAW_DEBUG_BORDER: true
+    DRAW_DEBUG_BORDER: true,
 
+    GAME: {
+        DAMP_FACTOR: .995
+    }
 };

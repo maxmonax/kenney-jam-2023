@@ -2,6 +2,7 @@ import { Config } from "../data/Config";
 import { Params } from "../data/Params";
 import { FrontEvents } from "../events/FrontEvents";
 import { GameEvents } from "../events/GameEvents";
+import { AudioAlias } from "../sound/SndMng";
 import { LogMng } from "../utils/LogMng";
 
 export class MenuScene extends Phaser.Scene {
@@ -24,30 +25,20 @@ export class MenuScene extends Phaser.Scene {
     }
 
     public init(aData: any) {
-        LogMng.debug(`MenuScene -> init()...`);
-    }
-
-    public preload(): void {
-        LogMng.debug(`MenuScene -> preload()...`);
-
-        this.load.audio('btn', ['./assets/audio/btn.mp3']);
-        this.load.audio('music', ['./assets/audio/music.mp3']);
     }
 
     public create(): void {
-        LogMng.debug(`MenuScene -> create()...`);
-
         this.dummyMain = this.add.container(0, 0);
 
         let bg = this.add.image(Config.GW_HALF, Config.GH_HALF, 'bg');
         bg.scaleX = Config.GW / bg.width;
         this.dummyMain.add(bg);
 
-        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH / 2, 'game', 'btnPlay');
+        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH / 2, 'game', 'ui/btnPlay');
         this.btnPlay.setInteractive({ cursor: 'pointer' });
         this.btnPlay.on('pointerdown', () => {
             this.btnPlay['isPointerDown'] = true;
-            this.sound.play('btn');
+            this.sound.play(AudioAlias.click);
             LogMng.debug(`btnPlay pointerdown!`);
         });
         this.btnPlay.on('pointerup', () => {
@@ -115,7 +106,6 @@ export class MenuScene extends Phaser.Scene {
     }
 
     private onPlayBtnClick() {
-        LogMng.debug(`btnPlay click!`);
         this.scene.start('GameScene');
     }
 

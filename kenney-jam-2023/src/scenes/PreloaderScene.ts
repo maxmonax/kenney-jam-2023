@@ -34,7 +34,7 @@ export class PreloaderScene extends Phaser.Scene {
 
         // images
         this.load.setPath('./assets/images/');
-        this.load.image('bg', 'bg.png');
+        this.load.image('bg', 'bg.jpg');
         
         // audio
         this.load.setPath('./assets/audio/');

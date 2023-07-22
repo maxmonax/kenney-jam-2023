@@ -1,25 +1,25 @@
+import { Config } from "../data/Config";
 import { Bullet } from "../objects/Bullet";
-import { PlayerShip } from "../objects/PlayerShip";
+import { Ship } from "../objects/Ship";
 import { GameScene } from "../scenes/GameScene";
 import { AudioAlias } from "../sound/SndMng";
 
 var ACCELERATION = 300;
-var DAMP_FACTOR = .995;
 var ROTATION_SPEED = Math.PI / 1;
 var ROTATION_SPEED_DEGREES = Phaser.Math.RadToDeg(ROTATION_SPEED);
 var TOLERANCE = 0.02 * ROTATION_SPEED;
 
 export class ShipController {
     private _scene: GameScene;
-    private _ship: PlayerShip;
+    private _ship: Ship;
     private _timerFire = 0;
-
+    
     private _keyW: Phaser.Input.Keyboard.Key;
     private _keyA: Phaser.Input.Keyboard.Key;
     private _keyD: Phaser.Input.Keyboard.Key;
     private _keySpace: Phaser.Input.Keyboard.Key;
 
-    constructor(scene: GameScene, ship: PlayerShip) {
+    constructor(scene: GameScene, ship: Ship) {
         this._scene = scene;
         this._ship = ship;
 
@@ -27,20 +27,6 @@ export class ShipController {
         this._keyA = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this._keyD = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this._keySpace = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
-        // this._scene.input
-        //     .on('pointermove', (p, obj) => {
-        //         // this._lookPointer = p;
-        //     })
-        //     .on('pointerdown', (atr1, atr2, atr3) => {
-        //         // debugger;
-        //         // this.pointerIsDown = true;
-        //     })
-        //     .on('pointerup', () => {
-        //         // debugger;
-        //         // this.pointerIsDown = false;
-        //     });
-
     }
 
     pointerMove(pointer) {
@@ -65,8 +51,9 @@ export class ShipController {
             this._ship.image.body.acceleration.y = 0;
         }
 
-        this._ship.image.body.velocity.x *= DAMP_FACTOR;
-        this._ship.image.body.velocity.y *= DAMP_FACTOR;
+        let df = Config.GAME.DAMP_FACTOR;
+        this._ship.image.body.velocity.x *= df;
+        this._ship.image.body.velocity.y *= df;
     }
 
     updateTurning(dt: number) {
@@ -84,21 +71,22 @@ export class ShipController {
         if (this._timerFire > 0) return;
         if (!this._keySpace.isDown) return;
 
-        this._timerFire = this._ship.fireFreq;
+        this._timerFire = this._ship.firePauseDelay;
 
         this._scene.sound.play(AudioAlias.laserSmall_001, { volume: 0.5 });
 
         let dir = this._scene.physics.velocityFromRotation(this._ship.image.rotation, 1);
-        let fOff = new Phaser.Math.Vector2(this._ship.fireOffset.x, this._ship.fireOffset.y);
-        fOff.rotate(dir.angle());
-
-        let lines = this._ship.lines;
+        let firePoints = this._ship.getFireOffsets();
         let velocity = 800 + this._ship.image.body.velocity.length();
 
-        for (let i = 0; i < lines; i++) {
+        for (let i = 0; i < firePoints.length; i++) {
+            let fp = firePoints[i];
+            let fOff = new Phaser.Math.Vector2(fp.x, fp.y);
+            fOff.rotate(dir.angle());
             new Bullet(this._scene,
                 this._ship.image.x + fOff.x,
                 this._ship.image.y + fOff.y,
+                this._ship.damage,
                 this._ship.image.rotation,
                 velocity,
                 this._ship.bulletTexture
