@@ -5,10 +5,11 @@ export class PlayerShip {
     image; //: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
     pointerIsDown = false;
     lines = 1;
-    bulletTexture: string;
+    bulletTexture = 'effects/fire18';
     popupTween;
     popupTweenShield;
     lightTween;
+    fireOffset = { x: 0, y: 0 };
 
     constructor(scene, x, y, parent) {
         this._scene = scene;
@@ -49,6 +50,11 @@ export class PlayerShip {
             .setInteractive();
         this._parent.add(this.image);
         this.image.invincible = false;
+
+        this.fireOffset = {
+            x: 50,
+            y: 0
+        }
 
         // this.turbine = this.scene.add.image(this.x, this.y + this.body.height / 2, 'game', 'blueTurbine')
         //     .setDepth(99)
@@ -95,7 +101,7 @@ export class PlayerShip {
             this.image.upgradeLevel = 0;
             this.image.shoot.delay = 400;
             this.image.setTexture('game', 'blue');
-            this.bulletTexture = 'laserBlue';
+            this.bulletTexture = 'effects/fire03';
         }
         else if (this.image.upgradeLevel === 1) {
             this.image.setTexture('game', 'blue');

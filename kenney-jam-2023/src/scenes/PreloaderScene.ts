@@ -1,5 +1,6 @@
 import { Config } from "../data/Config";
 import { PreloaderBar } from "../gui/preloader/PreloaderBar";
+import { LOAD_DATA } from "../sound/SndMng";
     
 enum Texts {
     Title = 'Loading complete',
@@ -35,12 +36,19 @@ export class PreloaderScene extends Phaser.Scene {
         this.load.setPath('./assets/images/');
         this.load.image('bg', 'bg.png');
         
+        // audio
+        this.load.setPath('./assets/audio/');
+        for (let i = 0; i < LOAD_DATA.length; i++) {
+            const element = LOAD_DATA[i];
+            this.load.audio(element.alias, element.file);
+        }
+
         // events
-        this.load.on('progress', function (value) {
+        this.load.on('progress', (value) => {
             if (Config.TAP_TO_START) this.bar.progress = value;
         }, this);
 
-        this.load.on('complete', function () {
+        this.load.on('complete', () => {
 
         }, this);
 
