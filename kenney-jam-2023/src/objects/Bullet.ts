@@ -1,12 +1,13 @@
+import { GameScene } from "../scenes/GameScene";
 
 export class Bullet {
-    scene;
+    scene: GameScene;
     body;
     direction: number;
     bulletTexture: string;
     destroyTimer;
 
-    constructor(scene, x, y, direction, velocity, bulletTexture) {
+    constructor(scene: GameScene, x, y, direction, velocity, bulletTexture) {
         this.scene = scene;
         this.direction = direction;
         this.bulletTexture = bulletTexture;
@@ -14,7 +15,7 @@ export class Bullet {
     }
 
     createBody(x, y, velocity) {
-        this.body = this.scene._bullets.create(x, y, 'game', this.bulletTexture)
+        this.body = this.scene.bullets.create(x, y, 'game', this.bulletTexture)
             .setDepth(105)
             .setRotation(this.direction - Math.PI / 2)
             .setVelocityX(velocity * Math.cos(this.direction))

@@ -1,5 +1,6 @@
 import { Bullet } from "../objects/Bullet";
 import { PlayerShip } from "../objects/PlayerShip";
+import { GameScene } from "../scenes/GameScene";
 import { AudioAlias } from "../sound/SndMng";
 
 var ACCELERATION = 300;
@@ -9,7 +10,7 @@ var ROTATION_SPEED_DEGREES = Phaser.Math.RadToDeg(ROTATION_SPEED);
 var TOLERANCE = 0.02 * ROTATION_SPEED;
 
 export class ShipController {
-    private _scene: Phaser.Scene;
+    private _scene: GameScene;
     private _ship: PlayerShip;
     private _timerFire = 0;
 
@@ -18,7 +19,7 @@ export class ShipController {
     private _keyD: Phaser.Input.Keyboard.Key;
     private _keySpace: Phaser.Input.Keyboard.Key;
 
-    constructor(scene: Phaser.Scene, ship: PlayerShip) {
+    constructor(scene: GameScene, ship: PlayerShip) {
         this._scene = scene;
         this._ship = ship;
 
@@ -83,7 +84,7 @@ export class ShipController {
         if (this._timerFire > 0) return;
         if (!this._keySpace.isDown) return;
 
-        this._timerFire = .1;
+        this._timerFire = this._ship.fireFreq;
 
         this._scene.sound.play(AudioAlias.laserSmall_001, { volume: 0.5 });
 

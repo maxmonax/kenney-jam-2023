@@ -1,17 +1,19 @@
+import { GameScene } from "../scenes/GameScene";
 
 export class PlayerShip {
-    private _scene: Phaser.Scene;
+    private _scene: GameScene;
     private _parent;
     image; //: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
     pointerIsDown = false;
     lines = 1;
+    fireFreq = .4;
     bulletTexture = 'effects/fire18';
     popupTween;
     popupTweenShield;
     lightTween;
     fireOffset = { x: 0, y: 0 };
 
-    constructor(scene, x, y, parent) {
+    constructor(scene: GameScene, x, y, parent) {
         this._scene = scene;
         this._parent = parent;
         this.initHero(x, y);
@@ -45,7 +47,7 @@ export class PlayerShip {
         // this._heroSprite = new Phaser.GameObjects.Sprite(this.scene, x, y, 'game', 'ship_1');
         // this.parent.add(this._heroSprite);
 
-        this.image = this._scene.physics.add.image(x, y, 'game', 'ship_1')
+        this.image = this._scene.allies.create(x, y, 'game', 'ship_1')
             .setDepth(150)
             .setInteractive();
         this._parent.add(this.image);

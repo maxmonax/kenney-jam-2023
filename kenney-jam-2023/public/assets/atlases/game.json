@@ -4,11 +4,32 @@
 			"image": "game.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 883,
-				"h": 252
+				"w": 942,
+				"h": 528
 			},
 			"scale": 1,
 			"frames": [
+				{
+					"filename": "station_1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1000,
+						"h": 1000
+					},
+					"spriteSourceSize": {
+						"x": 236,
+						"y": 246,
+						"w": 529,
+						"h": 526
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 529,
+						"h": 526
+					}
+				},
 				{
 					"filename": "enemies/spaceShips_007",
 					"rotated": false,
@@ -24,94 +45,10 @@
 						"h": 151
 					},
 					"frame": {
-						"x": 1,
+						"x": 532,
 						"y": 1,
 						"w": 172,
 						"h": 151
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_003",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 100,
-						"h": 94
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 100,
-						"h": 94
-					},
-					"frame": {
-						"x": 1,
-						"y": 154,
-						"w": 100,
-						"h": 94
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_005",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 136,
-						"h": 84
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 136,
-						"h": 84
-					},
-					"frame": {
-						"x": 103,
-						"y": 154,
-						"w": 136,
-						"h": 84
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_006",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 94,
-						"h": 148
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 94,
-						"h": 148
-					},
-					"frame": {
-						"x": 175,
-						"y": 1,
-						"w": 94,
-						"h": 148
-					}
-				},
-				{
-					"filename": "ship_1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 94,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 94,
-						"h": 100
-					},
-					"frame": {
-						"x": 241,
-						"y": 151,
-						"w": 94,
-						"h": 100
 					}
 				},
 				{
@@ -129,94 +66,10 @@
 						"h": 137
 					},
 					"frame": {
-						"x": 271,
-						"y": 1,
+						"x": 532,
+						"y": 154,
 						"w": 144,
 						"h": 137
-					}
-				},
-				{
-					"filename": "effects/shield1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 133,
-						"h": 108
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 133,
-						"h": 108
-					},
-					"frame": {
-						"x": 337,
-						"y": 140,
-						"w": 133,
-						"h": 108
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_007",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 126
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 126
-					},
-					"frame": {
-						"x": 417,
-						"y": 1,
-						"w": 16,
-						"h": 126
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_006",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 12,
-						"h": 126
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 12,
-						"h": 126
-					},
-					"frame": {
-						"x": 435,
-						"y": 1,
-						"w": 12,
-						"h": 126
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_005",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 6,
-						"h": 126
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 6,
-						"h": 126
-					},
-					"frame": {
-						"x": 449,
-						"y": 1,
-						"w": 6,
-						"h": 126
 					}
 				},
 				{
@@ -234,10 +87,115 @@
 						"h": 119
 					},
 					"frame": {
-						"x": 457,
+						"x": 706,
 						"y": 1,
 						"w": 143,
 						"h": 119
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_006",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 148
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 148
+					},
+					"frame": {
+						"x": 532,
+						"y": 293,
+						"w": 94,
+						"h": 148
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_005",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 84
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 84
+					},
+					"frame": {
+						"x": 532,
+						"y": 443,
+						"w": 136,
+						"h": 84
+					}
+				},
+				{
+					"filename": "effects/shield1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 133,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 108
+					},
+					"frame": {
+						"x": 706,
+						"y": 122,
+						"w": 133,
+						"h": 108
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_003",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 94
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 94
+					},
+					"frame": {
+						"x": 841,
+						"y": 122,
+						"w": 100,
+						"h": 94
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_008",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 82
+					},
+					"frame": {
+						"x": 841,
+						"y": 218,
+						"w": 100,
+						"h": 82
 					}
 				},
 				{
@@ -255,30 +213,9 @@
 						"h": 108
 					},
 					"frame": {
-						"x": 472,
-						"y": 122,
+						"x": 678,
+						"y": 232,
 						"w": 126,
-						"h": 108
-					}
-				},
-				{
-					"filename": "effects/speed",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 7,
-						"h": 108
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 7,
-						"h": 108
-					},
-					"frame": {
-						"x": 600,
-						"y": 122,
-						"w": 7,
 						"h": 108
 					}
 				},
@@ -297,283 +234,31 @@
 						"h": 82
 					},
 					"frame": {
-						"x": 602,
-						"y": 1,
+						"x": 628,
+						"y": 342,
 						"w": 114,
 						"h": 82
 					}
 				},
 				{
-					"filename": "effects/fire03",
+					"filename": "ship_1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 34
+						"w": 94,
+						"h": 100
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 34
+						"w": 94,
+						"h": 100
 					},
 					"frame": {
-						"x": 602,
-						"y": 85,
-						"w": 14,
-						"h": 34
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_008",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 100,
-						"h": 82
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 100,
-						"h": 82
-					},
-					"frame": {
-						"x": 609,
-						"y": 121,
-						"w": 100,
-						"h": 82
-					}
-				},
-				{
-					"filename": "effects/fire13",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 34
-					},
-					"frame": {
-						"x": 618,
-						"y": 85,
-						"w": 14,
-						"h": 34
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_012",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 634,
-						"y": 85,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/fire02",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 32
-					},
-					"frame": {
-						"x": 668,
-						"y": 85,
-						"w": 14,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/fire12",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 32
-					},
-					"frame": {
-						"x": 684,
-						"y": 85,
-						"w": 14,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_004",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 13,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 13,
-						"h": 32
-					},
-					"frame": {
-						"x": 700,
-						"y": 85,
-						"w": 13,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/fire18",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 41
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 41
-					},
-					"frame": {
-						"x": 609,
-						"y": 205,
-						"w": 16,
-						"h": 41
-					}
-				},
-				{
-					"filename": "effects/fire19",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 41
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 41
-					},
-					"frame": {
-						"x": 627,
-						"y": 205,
-						"w": 16,
-						"h": 41
-					}
-				},
-				{
-					"filename": "effects/fire00",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 40
-					},
-					"frame": {
-						"x": 645,
-						"y": 205,
-						"w": 16,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/fire08",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 40
-					},
-					"frame": {
-						"x": 663,
-						"y": 205,
-						"w": 16,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/fire09",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 40
-					},
-					"frame": {
-						"x": 681,
-						"y": 205,
-						"w": 16,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/fire10",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 40
-					},
-					"frame": {
-						"x": 699,
-						"y": 205,
-						"w": 16,
-						"h": 40
+						"x": 670,
+						"y": 426,
+						"w": 94,
+						"h": 100
 					}
 				},
 				{
@@ -591,52 +276,10 @@
 						"h": 80
 					},
 					"frame": {
-						"x": 711,
-						"y": 119,
+						"x": 744,
+						"y": 342,
 						"w": 106,
 						"h": 80
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_015",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 44,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 44,
-						"h": 50
-					},
-					"frame": {
-						"x": 717,
-						"y": 201,
-						"w": 44,
-						"h": 50
-					}
-				},
-				{
-					"filename": "effects/fire01",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 715,
-						"y": 85,
-						"w": 14,
-						"h": 31
 					}
 				},
 				{
@@ -654,10 +297,115 @@
 						"h": 74
 					},
 					"frame": {
-						"x": 718,
-						"y": 1,
+						"x": 766,
+						"y": 424,
 						"w": 101,
 						"h": 74
+					}
+				},
+				{
+					"filename": "effects/speed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 7,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 7,
+						"h": 108
+					},
+					"frame": {
+						"x": 806,
+						"y": 232,
+						"w": 7,
+						"h": 108
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_016",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 50,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 851,
+						"y": 1,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_015",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 50
+					},
+					"frame": {
+						"x": 851,
+						"y": 55,
+						"w": 44,
+						"h": 50
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_011",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 26
+					},
+					"frame": {
+						"x": 678,
+						"y": 154,
+						"w": 26,
+						"h": 26
+					}
+				},
+				{
+					"filename": "effects/star3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 815,
+						"y": 232,
+						"w": 24,
+						"h": 24
 					}
 				},
 				{
@@ -675,8 +423,8 @@
 						"h": 36
 					},
 					"frame": {
-						"x": 731,
-						"y": 77,
+						"x": 628,
+						"y": 293,
 						"w": 37,
 						"h": 36
 					}
@@ -696,199 +444,52 @@
 						"h": 36
 					},
 					"frame": {
-						"x": 770,
-						"y": 77,
+						"x": 903,
+						"y": 1,
 						"w": 35,
 						"h": 36
 					}
 				},
 				{
-					"filename": "effects/fire04",
+					"filename": "effects/fire18",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 31
+						"w": 16,
+						"h": 41
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 31
+						"w": 16,
+						"h": 41
 					},
 					"frame": {
-						"x": 807,
-						"y": 77,
-						"w": 14,
-						"h": 31
+						"x": 678,
+						"y": 182,
+						"w": 16,
+						"h": 41
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_016",
+					"filename": "effects/fire19",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 50,
-						"h": 52
+						"w": 16,
+						"h": 41
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 50,
-						"h": 52
+						"w": 16,
+						"h": 41
 					},
 					"frame": {
-						"x": 823,
-						"y": 1,
-						"w": 50,
-						"h": 52
-					}
-				},
-				{
-					"filename": "effects/fire05",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 763,
-						"y": 201,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/fire06",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 779,
-						"y": 201,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/fire07",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 795,
-						"y": 201,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/fire11",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 811,
-						"y": 201,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_010",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 30,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 30,
-						"h": 28
-					},
-					"frame": {
-						"x": 827,
-						"y": 55,
-						"w": 30,
-						"h": 28
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_008",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 21,
-						"h": 21
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 21,
-						"h": 21
-					},
-					"frame": {
-						"x": 859,
-						"y": 55,
-						"w": 21,
-						"h": 21
-					}
-				},
-				{
-					"filename": "effects/fire14",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 859,
-						"y": 78,
-						"w": 14,
-						"h": 31
+						"x": 815,
+						"y": 258,
+						"w": 16,
+						"h": 41
 					}
 				},
 				{
@@ -906,31 +507,10 @@
 						"h": 24
 					},
 					"frame": {
-						"x": 827,
-						"y": 85,
+						"x": 766,
+						"y": 500,
 						"w": 28,
 						"h": 24
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_011",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 26
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 26
-					},
-					"frame": {
-						"x": 827,
-						"y": 111,
-						"w": 26,
-						"h": 26
 					}
 				},
 				{
@@ -948,8 +528,8 @@
 						"h": 24
 					},
 					"frame": {
-						"x": 855,
-						"y": 111,
+						"x": 796,
+						"y": 500,
 						"w": 25,
 						"h": 24
 					}
@@ -969,31 +549,493 @@
 						"h": 24
 					},
 					"frame": {
-						"x": 855,
-						"y": 137,
+						"x": 823,
+						"y": 500,
 						"w": 25,
 						"h": 24
 					}
 				},
 				{
-					"filename": "effects/star3",
+					"filename": "effects/fire03",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 24,
-						"h": 24
+						"w": 14,
+						"h": 34
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 24,
-						"h": 24
+						"w": 14,
+						"h": 34
 					},
 					"frame": {
-						"x": 827,
-						"y": 139,
-						"w": 24,
-						"h": 24
+						"x": 815,
+						"y": 301,
+						"w": 14,
+						"h": 34
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_012",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 831,
+						"y": 302,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_010",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 30,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 30,
+						"h": 28
+					},
+					"frame": {
+						"x": 865,
+						"y": 302,
+						"w": 30,
+						"h": 28
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_007",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 126
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 126
+					},
+					"frame": {
+						"x": 869,
+						"y": 332,
+						"w": 16,
+						"h": 126
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_006",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 12,
+						"h": 126
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 12,
+						"h": 126
+					},
+					"frame": {
+						"x": 887,
+						"y": 332,
+						"w": 12,
+						"h": 126
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_005",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 6,
+						"h": 126
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 6,
+						"h": 126
+					},
+					"frame": {
+						"x": 901,
+						"y": 302,
+						"w": 6,
+						"h": 126
+					}
+				},
+				{
+					"filename": "effects/fire00",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
+					},
+					"frame": {
+						"x": 909,
+						"y": 302,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/fire13",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 34
+					},
+					"frame": {
+						"x": 927,
+						"y": 302,
+						"w": 14,
+						"h": 34
+					}
+				},
+				{
+					"filename": "effects/fire08",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
+					},
+					"frame": {
+						"x": 909,
+						"y": 344,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/fire02",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 32
+					},
+					"frame": {
+						"x": 927,
+						"y": 338,
+						"w": 14,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/fire12",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 32
+					},
+					"frame": {
+						"x": 927,
+						"y": 372,
+						"w": 14,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/fire09",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
+					},
+					"frame": {
+						"x": 909,
+						"y": 386,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/fire01",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 927,
+						"y": 406,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire10",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
+					},
+					"frame": {
+						"x": 869,
+						"y": 460,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_004",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 13,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 13,
+						"h": 32
+					},
+					"frame": {
+						"x": 887,
+						"y": 460,
+						"w": 13,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_003",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 25
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 25
+					},
+					"frame": {
+						"x": 850,
+						"y": 500,
+						"w": 14,
+						"h": 25
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_008",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 21,
+						"h": 21
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 21,
+						"h": 21
+					},
+					"frame": {
+						"x": 866,
+						"y": 502,
+						"w": 21,
+						"h": 21
+					}
+				},
+				{
+					"filename": "effects/fire04",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 852,
+						"y": 336,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire05",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 852,
+						"y": 369,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire06",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 897,
+						"y": 55,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire07",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 889,
+						"y": 494,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire11",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 897,
+						"y": 88,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire14",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 913,
+						"y": 39,
+						"w": 14,
+						"h": 31
 					}
 				},
 				{
@@ -1011,10 +1053,31 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 819,
-						"y": 165,
+						"x": 913,
+						"y": 72,
 						"w": 14,
 						"h": 31
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_001",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 23
+					},
+					"frame": {
+						"x": 901,
+						"y": 430,
+						"w": 14,
+						"h": 23
 					}
 				},
 				{
@@ -1032,8 +1095,29 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 853,
-						"y": 163,
+						"x": 902,
+						"y": 455,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/fire17",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 905,
+						"y": 488,
 						"w": 14,
 						"h": 31
 					}
@@ -1053,8 +1137,8 @@
 						"h": 30
 					},
 					"frame": {
-						"x": 869,
-						"y": 163,
+						"x": 918,
+						"y": 439,
 						"w": 13,
 						"h": 30
 					}
@@ -1074,31 +1158,10 @@
 						"h": 30
 					},
 					"frame": {
-						"x": 869,
-						"y": 195,
+						"x": 921,
+						"y": 471,
 						"w": 13,
 						"h": 30
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_001",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 23
-					},
-					"frame": {
-						"x": 827,
-						"y": 227,
-						"w": 14,
-						"h": 23
 					}
 				},
 				{
@@ -1116,52 +1179,10 @@
 						"h": 23
 					},
 					"frame": {
-						"x": 843,
-						"y": 227,
+						"x": 921,
+						"y": 503,
 						"w": 14,
 						"h": 23
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_003",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 25
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 25
-					},
-					"frame": {
-						"x": 827,
-						"y": 198,
-						"w": 14,
-						"h": 25
-					}
-				},
-				{
-					"filename": "effects/fire17",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 835,
-						"y": 165,
-						"w": 14,
-						"h": 31
 					}
 				}
 			]
@@ -1170,6 +1191,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:a429d7a416ac1e42b470d4e154b0925b:a7fa09605257f54aeead4f18fa28cf21:fc2835210f98bae8e8c1b7f0a84c9321$"
+		"smartupdate": "$TexturePacker:SmartUpdate:30a4542636e3e2c8fc8f7bb702e46309:669030d249fe9c5b3d5f9fc6d90d1f7a:fc2835210f98bae8e8c1b7f0a84c9321$"
 	}
 }
