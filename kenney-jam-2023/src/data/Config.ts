@@ -15,6 +15,12 @@ export const Config = {
     DRAW_DEBUG_BORDER: true,
 
     GAME: {
-        DAMP_FACTOR: .995
+        DAMP_FACTOR: .995,
+        WORLD_RADIUS: 50000
+    },
+
+    ASTEROIDS: {
+        COUNT: 1500,
+        MAX_HP: 10000
     }
 };

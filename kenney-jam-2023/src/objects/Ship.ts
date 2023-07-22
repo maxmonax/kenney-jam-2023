@@ -2,8 +2,6 @@ import { GameScene } from "../scenes/GameScene";
 import { LogMng } from "../utils/LogMng";
 import { GameObject } from "./GameObject";
 
-const MAX_LEVEL = 5;
-
 const LEVELS = [
     { level: 1, hp: 150, damage: 20, cost: 0, firePauseDelay: .4, firePoints: [{ x: 40, y: 0 }] },
     { level: 2, hp: 300, damage: 30, cost: 50, firePauseDelay: .3, firePoints: [{ x: 50, y: 0 }] },
@@ -15,14 +13,11 @@ const LEVELS = [
 export class Ship extends GameObject {
     private _scene: GameScene;
     private _parent;
-    image;
-
     private _level = 1;
-    
+    private popTween: Phaser.Tweens.Tween;
+    private lightTween;
+    image;
     bulletTexture = 'effects/fire18';
-    popTween: Phaser.Tweens.Tween;
-    lightTween;
-
     hp = 100;
 
     constructor(scene: GameScene, x, y, parent) {
@@ -61,7 +56,7 @@ export class Ship extends GameObject {
     }
 
     setLevel(aLevel: number) {
-        if (aLevel > MAX_LEVEL) return;
+        if (aLevel > LEVELS.length) return;
         // if (this._level == aLevel) return;
         LogMng.debug(`ship set level: ${aLevel}`);
         this._level = aLevel;

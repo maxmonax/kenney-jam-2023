@@ -12,35 +12,47 @@ const LEVELS = [
 export class Station extends GameObject {
     private _scene: GameScene;
     private _parent;
+    private popTween: Phaser.Tweens.Tween;
     rotateSpeed = 2;
     level = 1;
     image;
     pointerIsDown = false;
     lines = 1;
     bulletTexture: string;
-    popupTween;
-    popupTweenShield;
-    lightTween;
 
     constructor(scene: GameScene, x, y, parent) {
         super();
         this._scene = scene;
         this._parent = parent;
-        this.image = this._scene.allies.create(x, y, 'game', 'station/level_1')
+        let t = this.getTextureByLevel(1);
+        this.image = this._scene.allies.create(x, y, t.t, t.frame);
         this._parent.add(this.image);
-        this.image.invincible = false;
+        this.setLevel(1);
     }
 
     getTextureByLevel(level: number): {t: string, frame: string} {
-        return { t: 'game', frame: `station_${level}` };
+        return { t: 'game', frame: `station/level_${level}` };
     }
 
     setLevel(level: number) {
-        if (level == this.level) return;
+        if (level > LEVELS.length) return;
 
+        this.image.body.width = 10;
+        this.image.body.height = 10;
+        // this.image.body.offset.x += 100;
+
+        // change sprite
         let t = this.getTextureByLevel(level);
+        this.image.setScale(0, 0);
         this.image.setTexture(t.t, t.frame);
-
+        if (this.popTween) this._scene.tweens.remove(this.popTween);
+        this.popTween = this._scene.tweens.add({
+            // targets: [this.body, this.turbine],
+            targets: this.image,
+            scale: 1,
+            duration: 450,
+            ease: 'Back.Out'
+        });
     }
 
     kill() {

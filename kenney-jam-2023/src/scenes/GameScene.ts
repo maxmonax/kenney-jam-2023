@@ -3,6 +3,7 @@ import { Config } from "../data/Config";
 import { Params } from "../data/Params";
 import { DebugGui } from "../debug/DebugGui";
 import { FrontEvents } from "../events/FrontEvents";
+import { GameGui } from "../gui/game/GameGui";
 import { Asteroid } from "../objects/Asteriod";
 import { Bullet } from "../objects/Bullet";
 import { GameObject } from "../objects/GameObject";
@@ -11,13 +12,12 @@ import { Station } from "../objects/Station";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
 
-const WORLD_RADIUS = 100000;
-
 export class GameScene extends Phaser.Scene {
 
     private _dummyBgObjects: Phaser.GameObjects.Container;
     private _dummySpaceObjects: Phaser.GameObjects.Container;
     private _dummyObjects: Phaser.GameObjects.Container;
+    private _dummyGui: Phaser.GameObjects.Container;
     // physics
     allies: Phaser.Physics.Arcade.Group;
     bullets: Phaser.Physics.Arcade.Group;
@@ -30,7 +30,7 @@ export class GameScene extends Phaser.Scene {
     private _station: Station;
     private _shipController: ShipController;
     // GUI
-
+    private _gui: GameGui;
     // effects
     private _asteroidHitEffectEmitter;
     private _asteroidDestroyEffectEmitter;
@@ -62,6 +62,10 @@ export class GameScene extends Phaser.Scene {
         this._dummyBgObjects = this.add.container();
         this._dummySpaceObjects = this.add.container();
         this._dummyObjects = this.add.container();
+        this._dummyGui = this.add.container();
+        this._dummyGui.setScrollFactor(0);
+
+        this._gui = new GameGui(this, this._dummyGui);
 
         this.allies = this.physics.add.group();
         this.bullets = this.physics.add.group();
@@ -74,7 +78,7 @@ export class GameScene extends Phaser.Scene {
         this._station = new Station(this, 0, 0, this._dummyBgObjects);
         this._objects.push(this._station);
 
-        this._playerShip = new Ship(this, 200, 200, this._dummyObjects);
+        this._playerShip = new Ship(this, 350, -180, this._dummyObjects);
         this._objects.push(this._playerShip);
 
         this.cameras.main.centerOn(0, 0);
@@ -84,13 +88,7 @@ export class GameScene extends Phaser.Scene {
         this._shipController = new ShipController(this, this._playerShip);
 
         this.initPhysics();
-
         this.initDebug();
-
-        // this.scale.on('resize', this.onResize, this);
-        FrontEvents.getInstance().addListener(FrontEvents.EVENT_WINDOW_RESIZE, this.onResize, this);
-        this.onResize();
-
     }
 
     private initEffects() {
@@ -133,33 +131,41 @@ export class GameScene extends Phaser.Scene {
             let asteroid = aAsteroidImage.object as Asteroid;
             let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
             let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
-            let hitPower = vel1.clone().add(vel2).length();
-            if (hitPower > 20) {
-                let effectPos = {
-                    x: (aAllyImage.x + aAsteroidImage.x) / 2,
-                    y: (aAllyImage.y + aAsteroidImage.y) / 2
-                }
-                this._asteroidHitEffectEmitter.explode(20, effectPos.x, effectPos.y);
-                asteroid.hit(ship.damage);
-                ship.hit(hitPower * asteroid.mass / 100);
-                // aAllyImage.destroy();
+            let hitPower = vel1.clone().add(vel2.clone().negate()).length();
+            let hitFactor = hitPower / 100;
+            LogMng.debug(`hit power: ${hitPower}`);
+            let effectPos = {
+                x: (aAllyImage.x + aAsteroidImage.x) / 2,
+                y: (aAllyImage.y + aAsteroidImage.y) / 2
             }
+            if (hitPower > 50) this._asteroidHitEffectEmitter.explode(10, effectPos.x, effectPos.y);
+            asteroid.hit(ship.damage / 10 * hitFactor);
+            ship.hit(hitPower * asteroid.mass / 100);
+            // aAllyImage.destroy();
+
             if (asteroid.hp <= 0) {
                 this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
                 aAsteroidImage.destroy();
+
+                // energy drop
+                
+
             }
         });
 
     }
 
     private generateAsteroid() {
-        for (let i = 0; i < 1000; i++) {
+        const wr = Config.GAME.WORLD_RADIUS;
+        for (let i = 0; i < Config.ASTEROIDS.COUNT; i++) {
             let v2 = new Phaser.Math.Vector2(MyMath.randomInRange(-1, 1), MyMath.randomInRange(-1, 1));
-            v2.normalize().scale(MyMath.randomInRange(1000, WORLD_RADIUS));
-            let distPerc = v2.length() / WORLD_RADIUS;
-            let hp = distPerc * 10000;
+            v2.normalize().scale(MyMath.randomInRange(1000, wr));
+            let distPerc = v2.length() / wr;
+            let hp = distPerc * Config.ASTEROIDS.MAX_HP;
+            let scale = 1 + MyMath.randomInRange(distPerc * 3.5, distPerc * 4);
+            // let size = Math.trunc(distPerc * 3) + 1;
             // LogMng.debug(`aster hp: ${hp}`);
-            let aster = new Asteroid(this, v2.x, v2.y, hp, this._dummySpaceObjects);
+            let aster = new Asteroid(this, v2.x, v2.y, hp, scale, this._dummySpaceObjects);
             this._objects.push(aster);
         }
     }
@@ -167,48 +173,14 @@ export class GameScene extends Phaser.Scene {
         const OBJ = {
             shipLevelUp: () => {
                 this._playerShip.setLevel(this._playerShip.level + 1);
+            },
+            stationLevelUp: () => {
+                this._station.setLevel(this._station.level + 1);
             }
         }
         let gui = DebugGui.getInstance().gui;
         gui.add(OBJ, 'shipLevelUp');
-    }
-
-    private onResize() {
-        this.updateBtnBackPos();
-    }
-
-    private updateBtnBackPos() {
-        // if (this.btnBack) this.btnBack.x = (Config.GW - Params.gameWidth) / 2 + 90;
-    }
-
-    private onPointerDown(p, aObj) {
-        // if (aObj[0] == this.btnBack) {
-        //     this.sound.play('btn');
-        //     this.btnBack['isMouseDown'] = true;
-        // }
-
-    }
-
-    private onPointerMove(p) {
-
-    }
-
-    private onDragStart(pointer, aObj, dragX, dragY) {
-
-    }
-
-    private onDrag(pointer, aObj, dragX, dragY) {
-        aObj.x = dragX;
-        aObj.y = dragY;
-    }
-
-    private onDragEnd(pointer, aObj) {
-        LogMng.debug(`obj ${aObj['aliasName']}: ${aObj.x}, ${aObj.y}`);
-
-    }
-
-    private onBackClick() {
-        this.scene.start('MenuScene');
+        gui.add(OBJ, 'stationLevelUp');
     }
 
     update(allTime: number, dtMs: number) {
@@ -221,7 +193,9 @@ export class GameScene extends Phaser.Scene {
             const obj = this._objects[i];
             obj.update(dt);
         }
-        
+
+        this._gui.update(dt);
+
     }
 
 }

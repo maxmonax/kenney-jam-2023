@@ -980,7 +980,39 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/ui/blue.png</key>
+            <key type="filename">game/station/level_2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>132,131,263,261</rect>
+                <key>scale9Paddings</key>
+                <rect>132,131,263,261</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/Colored/blue.png</key>
+            <key type="filename">game/ui/Colored/blue_pressed.png</key>
+            <key type="filename">game/ui/Colored/green.png</key>
+            <key type="filename">game/ui/Colored/green_pressed.png</key>
+            <key type="filename">game/ui/Colored/grey.png</key>
+            <key type="filename">game/ui/Colored/grey_pressed.png</key>
+            <key type="filename">game/ui/Colored/red.png</key>
+            <key type="filename">game/ui/Colored/red_pressed.png</key>
+            <key type="filename">game/ui/Colored/yellow.png</key>
+            <key type="filename">game/ui/Colored/yellow_pressed.png</key>
+            <key type="filename">game/ui/Outline/blue.png</key>
+            <key type="filename">game/ui/Outline/blue_pressed.png</key>
+            <key type="filename">game/ui/Outline/green.png</key>
+            <key type="filename">game/ui/Outline/green_pressed.png</key>
+            <key type="filename">game/ui/Outline/red.png</key>
+            <key type="filename">game/ui/Outline/red_pressed.png</key>
+            <key type="filename">game/ui/Outline/yellow.png</key>
+            <key type="filename">game/ui/Outline/yellow_pressed.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

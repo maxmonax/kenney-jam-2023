@@ -12,17 +12,20 @@ export class Asteroid extends GameObject {
     direction: number;
     texture: string;
     destroyTimer;
+    // size: number;
     hp: number = 100;
     mass: number = 100;
 
-    constructor(scene: GameScene, x, y, hp: number, parent) {
+    constructor(scene: GameScene, x, y, hp: number, scale: number, parent) {
         super();
         this.scene = scene;
         this._parent = parent;
+        // this.size = size;
         this.hp = hp;
-        this._scale = MyMath.randomInRange(1, 2);
+        this._scale = scale;
         this.mass = this._scale * 10;
         // this.direction = direction;
+        
         this.texture = `asteroids/meteorBrown_big${MyMath.randomIntInRange(1, 4)}`;
         this.createBody(x, y, null);
     }
@@ -32,6 +35,11 @@ export class Asteroid extends GameObject {
             // .setVelocityX(velocity * Math.cos(this.direction))
             // .setVelocityY(velocity * Math.sin(this.direction));
         this.image.setScale(this._scale);
+        let newSize = {
+            x: this.image.body.width * .8,
+            y: this.image.body.height * .8
+        }
+        this.image.body.setSize(newSize.x, newSize.y);
         this.image.object = this;
         // this.image.body.mass = this.mass;
         // this.image.body.height *= .8;
@@ -40,7 +48,7 @@ export class Asteroid extends GameObject {
     }
 
     hit(aDamage: number) {
-        LogMng.debug(`damage ${aDamage}`);
+        LogMng.debug(`Asteroid dmg ${aDamage}`);
         this.hp -= aDamage;
     }
 

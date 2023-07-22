@@ -34,7 +34,16 @@ export class MenuScene extends Phaser.Scene {
         bg.scaleX = Config.GW / bg.width;
         this.dummyMain.add(bg);
 
-        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH / 2, 'game', 'ui/btnPlay');
+        let scoreText = new Phaser.GameObjects.Text(this, Config.GW / 2, 350, 'Lost in Space', {
+            fontFamily: 'Orbitron',
+            color: '#66439f',
+            align: 'center'
+        });
+        scoreText.setFontSize(150);
+        scoreText.setOrigin(0.5, 0.5);
+        this.add.existing(scoreText);
+
+        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH / 2 + 200, 'game', 'ui/btnPlay');
         this.btnPlay.setInteractive({ cursor: 'pointer' });
         this.btnPlay.on('pointerdown', () => {
             this.btnPlay['isPointerDown'] = true;
@@ -71,7 +80,7 @@ export class MenuScene extends Phaser.Scene {
     }
 
     private onResize() {
-        this.updateBtnClosePos();
+        
     }
 
     private hideBlackCurtain(cb?: Function, ctx?: any) {
@@ -99,10 +108,6 @@ export class MenuScene extends Phaser.Scene {
                 if (cb) cb.call(ctx);
             }
         });
-    }
-
-    private updateBtnClosePos() {
-        
     }
 
     private onPlayBtnClick() {
