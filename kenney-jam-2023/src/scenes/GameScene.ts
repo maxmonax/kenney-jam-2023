@@ -130,13 +130,13 @@ export class GameScene extends Phaser.Scene {
         });
 
         GameEvents.getInstance().on(GameEvents.GUI_MENU_PRESSED, () => {
-            LogMng.debug('GameScene: GUI_MENU_PRESSED');
+            // LogMng.debug('GameScene: GUI_MENU_PRESSED');
             this.scene.start('MenuScene');
         }, this);
 
         // this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.x
         GameEvents.getInstance().on(GameEvents.GUI_TELEPORT_PRESSED, () => {
-            LogMng.debug('GameScene: GUI_TELEPORT_PRESSED');
+            // LogMng.debug('GameScene: GUI_TELEPORT_PRESSED');
             this.sound.play(AudioAlias.teleport, { volume: MyMath.randomInRange(.5, .8) });
             this._ship.image.body.velocity.x *= 0.1;
             this._ship.image.body.velocity.y *= 0.1;
@@ -233,7 +233,7 @@ export class GameScene extends Phaser.Scene {
                 let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
                 let hitPower = vel1.clone().add(vel2.clone().negate()).length();
                 let hitFactor = hitPower / 100;
-                LogMng.debug(`hit power: ${hitPower}`);
+                // LogMng.debug(`hit power: ${hitPower}`);
                 let effectPos = {
                     x: (aAllyImage.x + aAsteroidImage.x) / 2,
                     y: (aAllyImage.y + aAsteroidImage.y) / 2
@@ -251,7 +251,7 @@ export class GameScene extends Phaser.Scene {
                 let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
                 let hitPower = vel1.clone().add(vel2.clone().negate()).length();
                 let hitFactor = hitPower / 100;
-                LogMng.debug(`hit power: ${hitPower}`);
+                // LogMng.debug(`hit power: ${hitPower}`);
                 let effectPos = {
                     x: (aAllyImage.x + aAsteroidImage.x) / 2,
                     y: (aAllyImage.y + aAsteroidImage.y) / 2
@@ -305,7 +305,7 @@ export class GameScene extends Phaser.Scene {
                 this._asterSpawner.spawn();
             },
             enemySpawn: () => {
-                this._enemySpawner.spawnEnemy(this._ship.image.x + 500, this._ship.image.y);
+                this._enemySpawner.spawnEnemy(this._ship.image.x + 500, this._ship.image.y, this._ship.level);
             }
         }
         let gui = DebugGui.getInstance().gui;
@@ -338,7 +338,9 @@ export class GameScene extends Phaser.Scene {
         let asteroid = aAsteroidImage.object as Asteroid;
         let x = aAsteroidImage.x;
         let y = aAsteroidImage.y;
-        let enCnt = Math.trunc(asteroid.scale) + MyMath.randomIntInRange(1, 3);
+        let scCnt = Math.trunc(asteroid.scale * 4);
+        // LogMng.debug(`scCnt: ${scCnt}`);
+        let enCnt = scCnt;// * MyMath.randomIntInRange(2, 4);
 
         this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
         // aAsteroidImage.destroy();
@@ -349,8 +351,7 @@ export class GameScene extends Phaser.Scene {
         // energy drop
         for (let i = 0; i < enCnt; i++) {
             let energy = new Energy(this, x, y, this._dummyBgObjects, enCnt);
-            // this._objects.push(energy);
-            this._objMng.addObject(energy)
+            this._objMng.addObject(energy);
         }
     }
 

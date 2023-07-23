@@ -4,6 +4,7 @@ import { Params } from "../../data/Params";
 import { FrontEvents } from "../../events/FrontEvents";
 import { GameEvents } from "../../events/GameEvents";
 import { GameGuiScene } from "../../scenes/GameGuiScene";
+import { AudioAlias, SndMng } from "../../sound/SndMng";
 import { LogMng } from "../../utils/LogMng";
 import { GuiDialog, GuiDialogEvents } from "./GuiDialog";
 
@@ -65,8 +66,7 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._leftMenu.add(this._teleportBtn);
         this._teleportBtn.setInteractive({ cursor: 'pointer' });
         this._teleportBtn.on('pointerdown', () => {
-            LogMng.debug(`GUI_TELEPORT_PRESSED!`);
-            // this._scene.events.emit(GuiEvents.homeClick);
+            SndMng.sfxPlay(AudioAlias.click);
             gameEvents.emit(GameEvents.GUI_TELEPORT_PRESSED);
         });
 
@@ -83,7 +83,10 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._stationUpBtn = this._scene.add.image(60, this._teleportBtn.y + yinc, 'game', 'ui/station_up');
         this._leftMenu.add(this._stationUpBtn);
         this._stationUpBtn.setInteractive({ cursor: 'pointer' });
-        this._stationUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_STATION_UP); });
+        this._stationUpBtn.on('pointerdown', () => {
+            SndMng.sfxPlay(AudioAlias.click);
+            gameEvents.emit(GameEvents.GUI_STATION_UP);
+        });
 
         this._stationUpText = new Phaser.GameObjects.Text(scene, this._stationUpBtn.x + 50, this._stationUpBtn.y,
             'station up\n500',
@@ -98,7 +101,10 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._shipUpBtn = this._scene.add.image(60, this._stationUpBtn.y + yinc, 'game', 'ui/ship_up');
         this._leftMenu.add(this._shipUpBtn);
         this._shipUpBtn.setInteractive({ cursor: 'pointer' });
-        this._shipUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_SHIP_UP); });
+        this._shipUpBtn.on('pointerdown', () => {
+            SndMng.sfxPlay(AudioAlias.click);
+            gameEvents.emit(GameEvents.GUI_SHIP_UP);
+        });
 
         this._shipUpText = new Phaser.GameObjects.Text(scene, this._shipUpBtn.x + 50, this._shipUpBtn.y,
             'ship up',
@@ -112,7 +118,7 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._rightMenu.add(menuBtn);
         menuBtn.setInteractive({ cursor: 'pointer' });
         menuBtn.on('pointerdown', () => {
-            LogMng.debug(`GameGui: GUI_MENU_PRESSED!`);
+            SndMng.sfxPlay(AudioAlias.click);
             gameEvents.emit(GameEvents.GUI_MENU_PRESSED);
         });
 

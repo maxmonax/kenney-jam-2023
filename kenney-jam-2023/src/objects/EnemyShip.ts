@@ -7,37 +7,37 @@ import { GameObject } from "./GameObject";
 
 const LEVELS = [
     {
-        frame: 'enemies/spaceShips_001',
-        level: 1, hp: 150, damage: 20, cost: 0, shootPauseDelay: .8,
+        frame: 'enemies/enemyRed1',
+        level: 1, hp: 150, damage: 10, cost: 0, shootPauseDelay: 1.,
         shootPoints: [{ x: 40, y: 0 }],
         firePoints: [{ x: -30, y: -20 }, { x: -30, y: 20 }],
         physics: { w: 100, h: 100 }
     },
     {
         frame: 'enemies/spaceShips_001',
-        level: 2, hp: 300, damage: 30, cost: 50, shootPauseDelay: .6,
+        level: 2, hp: 300, damage: 15, cost: 50, shootPauseDelay: .8,
         shootPoints: [{ x: 50, y: 0 }],
-        firePoints: [{ x: -40, y: 0 }],
+        firePoints: [{ x: -30, y: -20 }, { x: -30, y: 20 }],
         physics: { w: 100, h: 100 }
     },
     {
         frame: 'enemies/spaceShips_001',
-        level: 3, hp: 500, damage: 40, cost: 150, shootPauseDelay: .6,
+        level: 3, hp: 500, damage: 20, cost: 150, shootPauseDelay: .6,
         shootPoints: [{ x: 50, y: -20 }, { x: 50, y: 20 }],
         firePoints: [{ x: -30, y: -15 }, { x: -30, y: 15 }],
         physics: { w: 100, h: 100 }
     },
     {
-        frame: 'enemies/spaceShips_001',
-        level: 4, hp: 1000, damage: 50, cost: 300, shootPauseDelay: .4,
+        frame: 'enemies/spaceShips_004',
+        level: 4, hp: 1000, damage: 25, cost: 300, shootPauseDelay: .4,
         shootPoints: [{ x: 50, y: -28 }, { x: 50, y: 28 }],
-        firePoints: [{ x: -30, y: -15 }, { x: -30, y: 15 }],
+        firePoints: [{ x: -50, y: -37 }, { x: -50, y: 37 }],
         fireYScale: .8,
         physics: { w: 100, h: 100 }
     },
     {
-        frame: 'enemies/spaceShips_001',
-        level: 5, hp: 2000, damage: 80, cost: 1000, shootPauseDelay: .2,
+        frame: 'enemies/spaceShips_007',
+        level: 5, hp: 2000, damage: 30, cost: 1000, shootPauseDelay: .2,
         shootPoints: [{ x: 55, y: -28 }, { x: 55, y: 28 }],
         firePoints: [{ x: -55, y: -40 }, { x: -55, y: 40 }],
         fireYScale: 1.2,
@@ -62,7 +62,7 @@ export class EnemyShip extends GameObject {
     image;
     alive = true;
 
-    constructor(scene: GameScene, x, y, parent) {
+    constructor(scene: GameScene, x, y, parent, level) {
         super();
         this._scene = scene;
         this._parent = parent;
@@ -71,7 +71,7 @@ export class EnemyShip extends GameObject {
         this._parent.add(this._fireDummy);
         this.initBody(x, y);
         this.initFires();
-        this.setLevel(1);
+        this.setLevel(level);
         this.initHpBar();
     }
 

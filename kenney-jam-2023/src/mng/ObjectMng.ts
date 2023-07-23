@@ -56,8 +56,8 @@ export class ObjectMng {
         return aster;
     }
 
-    createEnemy(x, y, parent): EnemyShip {
-        let ship = new EnemyShip(this._scene, x, y, parent);
+    createEnemy(x, y, parent, level): EnemyShip {
+        let ship = new EnemyShip(this._scene, x, y, parent, level);
         this.addObject(ship);
         return ship;
     }

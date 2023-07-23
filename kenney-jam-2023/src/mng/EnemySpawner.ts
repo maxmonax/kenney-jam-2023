@@ -25,7 +25,7 @@ export class EnemySpawner extends Phaser.Events.EventEmitter {
     }
 
     private getSpawnTime(): number {
-        const time = [120, 90, 80, 70, 60];
+        const time = [180, 90, 80, 70, 60];
         return time[this._ship.level - 1];
     }
 
@@ -37,7 +37,7 @@ export class EnemySpawner extends Phaser.Events.EventEmitter {
         let velocity = spawnPos.clone().negate().scale(MyMath.randomInRange(.2, .6));
         spawnPos.x += this._ship.image.x;
         spawnPos.y += this._ship.image.y;
-        this.spawnEnemy(spawnPos.x, spawnPos.y);
+        this.spawnEnemy(spawnPos.x, spawnPos.y, MyMath.randomIntInRange(Math.max(1, this._ship.level - 2), this._ship.level));
     }
 
     private updateSpawn(dt: number) {
@@ -48,8 +48,8 @@ export class EnemySpawner extends Phaser.Events.EventEmitter {
         }
     }
 
-    spawnEnemy(x, y) {
-        let enemy = this._objMng.createEnemy(x, y, this._parent);
+    spawnEnemy(x, y, level) {
+        let enemy = this._objMng.createEnemy(x, y, this._parent, level);
         let ctrl = new EnemyController(this._scene, enemy);
         ctrl.enemy = this._ship;
         this._controllers.push(ctrl);

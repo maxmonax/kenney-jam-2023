@@ -1,5 +1,6 @@
 import { Config } from "../../data/Config";
 import { GameEvents } from "../../events/GameEvents";
+import { AudioAlias, SndMng } from "../../sound/SndMng";
 
 const INTRO_TEXTS = [
     `
@@ -102,6 +103,8 @@ export class GuiDialog extends Phaser.GameObjects.Container {
                 break;
         
         }
+
+        SndMng.sfxPlay(AudioAlias.click);
         
     }
 

@@ -22,7 +22,7 @@ export class AsteroidSpawner extends Phaser.Events.EventEmitter {
     }
 
     private getSpawnTime(): number {
-        const time = [30, 20, 10, 8, 5];
+        const time = [60, 50, 40, 30, 10];
         return time[this._ship.level - 1];
     }
 
@@ -39,7 +39,7 @@ export class AsteroidSpawner extends Phaser.Events.EventEmitter {
         dir.rotate(MyMath.randomInRange(0, Math.PI * 2));
         let spawnDist = MyMath.randomInRange(1500, 2500);
         let spawnPos = dir.clone().scale(spawnDist);
-        let velocity = spawnPos.clone().negate().scale(MyMath.randomInRange(.2, .6));
+        let velocity = spawnPos.clone().negate().scale(MyMath.randomInRange(.3, .6));
         velocity.rotate(MyMath.randomInRange(-Math.PI / 6, Math.PI / 6));
         spawnPos.x += this._ship.image.x;
         spawnPos.y += this._ship.image.y;
