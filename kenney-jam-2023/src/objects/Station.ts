@@ -4,11 +4,31 @@ import { MyMath } from "../utils/MyMath";
 import { GameObject } from "./GameObject";
 
 const LEVELS = [
-    { level: 1, hp: 1000, income: 0, incomeDelay: 10, damage: 20, cost: 0, firePauseDelay: .4, firePoints: [{ x: 40, y: 0 }] },
-    { level: 2, hp: 2000, income: 1, incomeDelay: 5, damage: 30, cost: 200, firePauseDelay: .3, firePoints: [{ x: 50, y: 0 }] },
-    { level: 3, hp: 3000, income: 2, incomeDelay: 5, damage: 40, cost: 500, firePauseDelay: .3, firePoints: [{ x: 50, y: -20 }, { x: 50, y: 20 }] },
-    { level: 4, hp: 4000, income: 4, incomeDelay: 5, damage: 50, cost: 1000, firePauseDelay: .2, firePoints: [{ x: 50, y: -28 }, { x: 50, y: 28 }] },
-    { level: 5, hp: 5000, income: 10, incomeDelay: 5, damage: 100, cost: 3000, firePauseDelay: .1, firePoints: [{ x: 55, y: -28 }, { x: 55, y: 28 }] },
+    {
+        level: 1, hp: 1000, income: 0, incomeDelay: 10, damage: 20, cost: 0,
+        firePauseDelay: .4, firePoints: [{ x: 40, y: 0 }],
+        physics: { w: 200, h: 200 }
+    },
+    {
+        level: 2, hp: 2000, income: 1, incomeDelay: 5, damage: 30, cost: 200,
+        firePauseDelay: .3, firePoints: [{ x: 50, y: 0 }],
+        physics: { w: 250, h: 250 }
+    },
+    {
+        level: 3, hp: 3000, income: 2, incomeDelay: 5, damage: 40, cost: 500,
+        firePauseDelay: .3, firePoints: [{ x: 50, y: -20 }, { x: 50, y: 20 }],
+        physics: { w: 300, h: 300 }
+    },
+    {
+        level: 4, hp: 4000, income: 4, incomeDelay: 5, damage: 50, cost: 1000,
+        firePauseDelay: .2, firePoints: [{ x: 50, y: -28 }, { x: 50, y: 28 }],
+        physics: { w: 400, h: 400 }
+    },
+    {
+        level: 5, hp: 5000, income: 10, incomeDelay: 5, damage: 100, cost: 3000,
+        firePauseDelay: .1, firePoints: [{ x: 55, y: -28 }, { x: 55, y: 28 }],
+        physics: { w: 500, h: 500 }
+    },
 ];
 
 export class Station extends GameObject {
@@ -48,10 +68,7 @@ export class Station extends GameObject {
     setLevel(level: number) {
         if (level > LEVELS.length) return;
         this.level = level;
-
-        this.image.body.width = 10;
-        this.image.body.height = 10;
-        // this.image.body.offset.x += 100;
+        let ld = LEVELS[this.level - 1];
 
         // change sprite
         let t = this.getTextureByLevel(level);
@@ -68,6 +85,8 @@ export class Station extends GameObject {
             duration: 450,
             ease: 'Back.Out'
         });
+
+        this.image.body.setSize(ld.physics.w, ld.physics.h);
     }
 
     kill() {

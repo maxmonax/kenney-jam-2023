@@ -201,7 +201,7 @@ export class GameScene extends Phaser.Scene {
             }
             if (hitPower > 50) this._asteroidHitEffectEmitter.explode(10, effectPos.x, effectPos.y);
             asteroid.hit(ship.damage / 10 * hitFactor);
-            ship.hit(hitPower * asteroid.mass / 100);
+            ship.hit(hitPower / 100);
             // aAllyImage.destroy();
 
             if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
