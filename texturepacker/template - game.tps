@@ -998,6 +998,51 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">game/station/level_3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>136,163,272,325</rect>
+                <key>scale9Paddings</key>
+                <rect>136,163,272,325</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/station/level_4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>136,193,272,386</rect>
+                <key>scale9Paddings</key>
+                <rect>136,193,272,386</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/station/level_5.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>208,193,415,386</rect>
+                <key>scale9Paddings</key>
+                <rect>208,193,415,386</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/ui/Colored/blue.png</key>
             <key type="filename">game/ui/Colored/blue_pressed.png</key>
             <key type="filename">game/ui/Colored/green.png</key>

@@ -21,7 +21,7 @@ export class Bullet extends GameObject {
     createBody(x, y, velocity) {
         this.image = this.scene.bullets.create(x, y, 'game', this.bulletTexture)
             .setDepth(105)
-            .setRotation(this.direction - Math.PI / 2)
+            .setRotation(this.direction)// - Math.PI / 2)
             .setVelocityX(velocity * Math.cos(this.direction))
             .setVelocityY(velocity * Math.sin(this.direction));
 

@@ -52,7 +52,7 @@ export class GameScene extends Phaser.Scene {
     public init(aData: any) {
         this._objects = [];
         let gd = GameData.getInstance();
-        gd.energyCnt = 0;
+        gd.energy = 0;
     }
 
     public preload(): void {
@@ -96,6 +96,11 @@ export class GameScene extends Phaser.Scene {
 
         this._shipController = new ShipController(this, this._ship);
 
+        // init game data
+        let gd = GameData.getInstance();
+        gd.ship = this._ship;
+        gd.station = this._station;
+
         this.initPhysics();
         this.initDebug();
 
@@ -117,6 +122,18 @@ export class GameScene extends Phaser.Scene {
             this._ship.image.body.velocity.y *= 0.1;
             this._ship.image.x = CONFIG.ship.startPos.x;
             this._ship.image.y = CONFIG.ship.startPos.y;
+        }, this);
+
+        GameEvents.getInstance().on(GameEvents.GUI_SHIP_UP, () => {
+            let cost = this._ship.upgradeCost;
+            this._ship.setLevel(this._ship.level + 1);
+            gd.energy -= cost;
+        }, this);
+
+        GameEvents.getInstance().on(GameEvents.GUI_STATION_UP, () => {
+            let cost = this._station.upgradeCost;
+            this._station.setLevel(this._station.level + 1);
+            gd.energy -= cost;
         }, this);
 
     }
@@ -149,7 +166,7 @@ export class GameScene extends Phaser.Scene {
             let ship = aShipImage.object as Ship;
             let energy = aEnergyImage.object as Energy;
             energy.free();
-            GameData.getInstance().addEnergy(energy.value);
+            GameData.getInstance().energy += energy.value;
         });
 
         this._bulletAsteroidsOverlap = this.physics.add.overlap(this.bullets, this.asteroids, (aBulletImage: any, aAsteroidImage: any) => {
@@ -221,11 +238,15 @@ export class GameScene extends Phaser.Scene {
             },
             stationLevelUp: () => {
                 this._station.setLevel(this._station.level + 1);
+            },
+            addEnergy: () => {
+                GameData.getInstance().energy += 500;
             }
         }
         let gui = DebugGui.getInstance().gui;
         gui.add(OBJ, 'shipLevelUp');
         gui.add(OBJ, 'stationLevelUp');
+        gui.add(OBJ, 'addEnergy');
     }
 
     private onSceneShutdown() {
@@ -273,6 +294,7 @@ export class GameScene extends Phaser.Scene {
         let gd = GameData.getInstance();
         let shipDist = MyMath.getVec2Length(0, 0, this._ship.image.x, this._ship.image.y);
         gd.teleportAvailable = shipDist > 1500;
+        gd.upBtnsAvailable = shipDist <= 1000;
 
         // this._gui.update(dt);
 

@@ -18,6 +18,8 @@ export class GameGui extends Phaser.Events.EventEmitter {
     private _rightMenu: Phaser.GameObjects.Container;
 
     private _teleportBtn: Phaser.GameObjects.Image;
+    private _shipUpBtn: Phaser.GameObjects.Image;
+    private _stationUpBtn: Phaser.GameObjects.Image;
 
     private _energyText: Phaser.GameObjects.Text;
     private _stationUpText: Phaser.GameObjects.Text;
@@ -54,34 +56,9 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._energyText.setOrigin(0, 0.5);
         this._leftMenu.add(this._energyText);
 
-        let stationUpBtn = this._scene.add.image(60, this._energyText.y + yinc, 'game', 'ui/station_up');
-        this._leftMenu.add(stationUpBtn);
-        stationUpBtn.setInteractive({ cursor: 'pointer' });
-        stationUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_STATION_UP); });
+        // teleport btn
 
-        this._stationUpText = new Phaser.GameObjects.Text(scene, stationUpBtn.x + 50, stationUpBtn.y,
-            'station up\n500',
-            { fontFamily: 'Orbitron', color: '#00ccff', align: 'left' }
-        );
-        this._stationUpText.setFontSize(25);
-        this._stationUpText.setOrigin(0, 0.5);
-        this._leftMenu.add(this._stationUpText);
-
-        let shipUpBtn = this._scene.add.image(60, stationUpBtn.y + yinc, 'game', 'ui/ship_up');
-        this._leftMenu.add(shipUpBtn);
-        shipUpBtn.setInteractive({ cursor: 'pointer' });
-        shipUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_SHIP_UP); });
-
-        this._shipUpText = new Phaser.GameObjects.Text(scene, shipUpBtn.x + 50, shipUpBtn.y,
-            'ship up\n500',
-            { fontFamily: 'Orbitron', color: '#99ff00', align: 'left' }
-        );
-        this._shipUpText.setFontSize(25);
-        this._shipUpText.setOrigin(0, 0.5);
-        this._leftMenu.add(this._shipUpText);
-
-        // home btn
-        this._teleportBtn = this._scene.add.image(60, shipUpBtn.y + yinc, 'game', 'ui/teleport');
+        this._teleportBtn = this._scene.add.image(60, this._energyText.y + yinc, 'game', 'ui/teleport');
         this._leftMenu.add(this._teleportBtn);
         this._teleportBtn.setInteractive({ cursor: 'pointer' });
         this._teleportBtn.on('pointerdown', () => {
@@ -97,6 +74,36 @@ export class GameGui extends Phaser.Events.EventEmitter {
         this._teleportText.setFontSize(25);
         this._teleportText.setOrigin(0, 0.5);
         this._leftMenu.add(this._teleportText);
+
+        // station up
+
+        this._stationUpBtn = this._scene.add.image(60, this._teleportBtn.y + yinc, 'game', 'ui/station_up');
+        this._leftMenu.add(this._stationUpBtn);
+        this._stationUpBtn.setInteractive({ cursor: 'pointer' });
+        this._stationUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_STATION_UP); });
+
+        this._stationUpText = new Phaser.GameObjects.Text(scene, this._stationUpBtn.x + 50, this._stationUpBtn.y,
+            'station up\n500',
+            { fontFamily: 'Orbitron', color: '#00ccff', align: 'left' }
+        );
+        this._stationUpText.setFontSize(25);
+        this._stationUpText.setOrigin(0, 0.5);
+        this._leftMenu.add(this._stationUpText);
+
+        // ship up
+
+        this._shipUpBtn = this._scene.add.image(60, this._stationUpBtn.y + yinc, 'game', 'ui/ship_up');
+        this._leftMenu.add(this._shipUpBtn);
+        this._shipUpBtn.setInteractive({ cursor: 'pointer' });
+        this._shipUpBtn.on('pointerdown', () => { gameEvents.emit(GameEvents.GUI_SHIP_UP); });
+
+        this._shipUpText = new Phaser.GameObjects.Text(scene, this._shipUpBtn.x + 50, this._shipUpBtn.y,
+            'ship up',
+            { fontFamily: 'Orbitron', color: '#99ff00', align: 'left' }
+        );
+        this._shipUpText.setFontSize(25);
+        this._shipUpText.setOrigin(0, 0.5);
+        this._leftMenu.add(this._shipUpText);
 
         let menuBtn = this._scene.add.image(-60, 50, 'game', 'ui/menu');
         this._rightMenu.add(menuBtn);
@@ -117,11 +124,14 @@ export class GameGui extends Phaser.Events.EventEmitter {
 
     private onBtnStateChange() {
         this.updateTeleportBtn();
+        this.updateShipUpBtn();
+        this.updateStationUpBtn();
     }
 
     private updateEnergy() {
         let gd = GameData.getInstance();
-        this._energyText.text = `${gd.energyCnt}`;
+        this._energyText.text = `${gd.energy}`;
+        this.onBtnStateChange();
     }
 
     private updateTeleportBtn() {
@@ -134,6 +144,52 @@ export class GameGui extends Phaser.Events.EventEmitter {
         else {
             this._teleportBtn.input.enabled = false;
             this._teleportBtn.alpha = this._teleportText.alpha = .5;
+        }
+    }
+
+    private updateShipUpBtn() {
+        let gd = GameData.getInstance();
+
+        if (gd.ship.isMaxLevel()) {
+            this._shipUpBtn.input.enabled = false;
+            this._shipUpBtn.visible = this._shipUpText.visible = false;
+        }
+        else {
+            let cost = gd.ship.upgradeCost;
+            let av = gd.upBtnsAvailable && gd.energy >= cost;
+            this._shipUpText.text = `ship up\n${cost}`;
+            if (av) {
+                this._shipUpBtn.input.enabled = true;
+                this._shipUpBtn.alpha = this._shipUpText.alpha = 1;
+            }
+            else {
+                this._shipUpBtn.input.enabled = false;
+                this._shipUpBtn.alpha = this._shipUpText.alpha = .5;
+            }
+            this._shipUpBtn.visible = this._shipUpText.visible = true;
+        }
+    }
+
+    private updateStationUpBtn() {
+        let gd = GameData.getInstance();
+
+        if (gd.station.isMaxLevel()) {
+            this._stationUpBtn.input.enabled = false;
+            this._stationUpBtn.visible = this._stationUpText.visible = false;
+        }
+        else {
+            let cost = gd.station.upgradeCost;
+            let av = gd.upBtnsAvailable && gd.energy >= cost;
+            this._stationUpText.text = `station up\n${cost}`;
+            if (av) {
+                this._stationUpBtn.input.enabled = true;
+                this._stationUpBtn.alpha = this._stationUpText.alpha = 1;
+            }
+            else {
+                this._stationUpBtn.input.enabled = false;
+                this._stationUpBtn.alpha = this._stationUpText.alpha = .5;
+            }
+            this._stationUpBtn.visible = this._stationUpText.visible = true;
         }
     }
 

@@ -51,6 +51,8 @@ export class ShipController {
             this._ship.image.body.acceleration.y = 0;
         }
 
+        this._ship.gas = this._keyW.isDown;
+
         let df = Config.GAME.DAMP_FACTOR;
         this._ship.image.body.velocity.x *= df;
         this._ship.image.body.velocity.y *= df;
@@ -71,7 +73,7 @@ export class ShipController {
         if (this._timerFire > 0) return;
         if (!this._keySpace.isDown) return;
 
-        this._timerFire = this._ship.firePauseDelay;
+        this._timerFire = this._ship.shootPauseDelay;
 
         this._scene.sound.play(AudioAlias.laserSmall_001, { volume: 0.5 });
 

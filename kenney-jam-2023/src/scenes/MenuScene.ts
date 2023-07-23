@@ -68,7 +68,7 @@ export class MenuScene extends Phaser.Scene {
         this.tweens.add({
             targets: this.btnPlay,
             y: Config.GH / 2 + 200,
-            duration: 1000,
+            duration: 500,
             delay: 400,
             ease: 'Sine.Out'
         });
