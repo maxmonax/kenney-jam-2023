@@ -91,7 +91,7 @@ export class GameGui extends Phaser.Events.EventEmitter {
         });
 
         this._teleportText = new Phaser.GameObjects.Text(scene, this._teleportBtn.x + 50, this._teleportBtn.y,
-            'teleport\nto base',
+            'teleport\nto station',
             { fontFamily: 'Orbitron', color: '#00ccff', align: 'left' }
         );
         this._teleportText.setFontSize(25);

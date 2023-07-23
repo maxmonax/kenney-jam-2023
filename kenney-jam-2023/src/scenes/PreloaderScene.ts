@@ -15,18 +15,38 @@ enum Styles {
 export class PreloaderScene extends Phaser.Scene {
     private bg: Phaser.GameObjects.Image;
     private bar: PreloaderBar;
+    // private text: PreloaderBar;
+    textTween: Phaser.Tweens.Tween;
 
     constructor() {
         super('PreloaderScene');
     }
 
     public preload(): void {
-        // this.bg = this.add.image(Config.GW_HALF, Config.GH_HALF, 'preloader', 'bg');
 
         if (Config.TAP_TO_START) {
             this.bar = new PreloaderBar(this, Config.GW_HALF, Config.GH_HALF + 200, true);
             this.add.existing(this.bar);
         }
+
+        let scoreText = new Phaser.GameObjects.Text(this, Config.GW_HALF, Config.GH_HALF, 'Loading...', {
+            fontFamily: 'Orbitron',
+            color: '#ffffff',
+            align: 'center'
+        });
+        scoreText.setFontSize(150);
+        scoreText.setOrigin(0.5, 0.5);
+        scoreText.alpha = 0.2;
+        this.textTween = this.tweens.add({
+            // targets: [this.body, this.turbine],
+            targets: scoreText,
+            alpha: .8,
+            duration: 1000,
+            repeat: -1,
+            yoyo: true,
+            ease: 'Sine.InOut'
+        });
+        this.add.existing(scoreText);
 
         // atlases
         this.load.setPath('./assets/atlases/');
@@ -61,6 +81,8 @@ export class PreloaderScene extends Phaser.Scene {
             let rFullArea = this.add.rectangle(Config.GW / 2, Config.GH / 2, Config.GW, Config.GH, 0x00FF00, 0.1);
             let rSafeArea = this.add.rectangle(Config.GW / 2, Config.GH / 2, Config.GW_SAFE, Config.GH_SAFE, 0x0000FF, 0.1);
         }
+
+        this.textTween.stop();
 
         if (Config.TAP_TO_START) {
 

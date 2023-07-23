@@ -11,8 +11,8 @@ export const Config = {
     GW_SAFE: 1440,
     GH_SAFE: 1080,
 
-    TAP_TO_START: true,
-    DRAW_DEBUG_BORDER: true,
+    TAP_TO_START: false,
+    DRAW_DEBUG_BORDER: false,
 
     GAME: {
         DAMP_FACTOR: .995,

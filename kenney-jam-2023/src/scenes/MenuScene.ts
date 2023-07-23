@@ -34,16 +34,26 @@ export class MenuScene extends Phaser.Scene {
         bg.scaleX = Config.GW / bg.width;
         this.dummyMain.add(bg);
 
-        let scoreText = new Phaser.GameObjects.Text(this, Config.GW / 2, 350, 'Lost in Space', {
+        let titleText = new Phaser.GameObjects.Text(this, Config.GW / 2, 350, 'Lost in Space', {
             fontFamily: 'Orbitron',
-            color: '#66439f',
+            // color: '#66439f',
+            color: '#ffffff',
             align: 'center'
         });
-        scoreText.setFontSize(150);
-        scoreText.setOrigin(0.5, 0.5);
-        this.add.existing(scoreText);
+        titleText.setFontSize(150);
+        titleText.setOrigin(0.5, 0.5);
+        titleText.alpha = 0;
 
-        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH / 2 + 200, 'game', 'ui/btnPlay');
+        this.tweens.add({
+            targets: titleText,
+            alpha: .8,
+            duration: 1000,
+            ease: 'Sine.InOut'
+        });
+
+        this.add.existing(titleText);
+
+        this.btnPlay = new Phaser.GameObjects.Image(this, Config.GW / 2, Config.GH + 300, 'game', 'ui/btnPlay');
         this.btnPlay.setInteractive({ cursor: 'pointer' });
         this.btnPlay.on('pointerdown', () => {
             this.btnPlay['isPointerDown'] = true;
@@ -54,6 +64,13 @@ export class MenuScene extends Phaser.Scene {
             if (this.btnPlay['isPointerDown'] != true) return;
             this.btnPlay['isPointerDown'] = false;
             this.onPlayBtnClick();
+        });
+        this.tweens.add({
+            targets: this.btnPlay,
+            y: Config.GH / 2 + 200,
+            duration: 1000,
+            delay: 400,
+            ease: 'Sine.Out'
         });
         this.add.existing(this.btnPlay);
 
