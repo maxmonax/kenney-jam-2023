@@ -62,7 +62,7 @@ export class Asteroid extends GameObject {
     }
 
     private updateMoving(dt: number) {
-        let df = Config.GAME.DAMP_FACTOR;
+        let df = Config.GAME.DAMP_ASTER;
         try {
             this.image.body.velocity.x *= df;
             this.image.body.velocity.y *= df;

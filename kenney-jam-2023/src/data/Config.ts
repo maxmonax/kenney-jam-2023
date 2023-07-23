@@ -16,11 +16,12 @@ export const Config = {
 
     GAME: {
         DAMP_FACTOR: .995,
+        DAMP_ASTER: .998,
         WORLD_RADIUS: 50000
     },
 
     ASTEROIDS: {
         COUNT: 1500,
-        MAX_HP: 10000
+        MAX_HP: 5000
     }
 };

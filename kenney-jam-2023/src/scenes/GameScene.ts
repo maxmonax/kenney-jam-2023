@@ -4,6 +4,8 @@ import { GameData } from "../data/GameData";
 import { Params } from "../data/Params";
 import { DebugGui } from "../debug/DebugGui";
 import { GameEvents } from "../events/GameEvents";
+import { AsteroidSpawner } from "../mng/AsteroidSpawner";
+import { ObjectMng } from "../mng/ObjectMng";
 import { Asteroid } from "../objects/Asteriod";
 import { Bullet } from "../objects/Bullet";
 import { Energy } from "../objects/Energy";
@@ -28,7 +30,7 @@ export class GameScene extends Phaser.Scene {
     private _dummySpaceObjects: Phaser.GameObjects.Container;
     private _dummyObjects: Phaser.GameObjects.Container;
     // physics
-    allies: Phaser.Physics.Arcade.Group;
+    // allies: Phaser.Physics.Arcade.Group;
     bullets: Phaser.Physics.Arcade.Group;
     asteroids: Phaser.Physics.Arcade.Group;
     energy: Phaser.Physics.Arcade.Group;
@@ -38,10 +40,11 @@ export class GameScene extends Phaser.Scene {
     _bulletAsteroidsOverlap;
     _allyAsteroidsCollider;
     // objects
-    private _objects: GameObject[];
+    private _objMng: ObjectMng;
     private _ship: Ship;
     private _station: Station;
     private _shipController: ShipController;
+    private _asterSpawner: AsteroidSpawner;
     // effects
     private _asteroidHitEffectEmitter;
     private _asteroidDestroyEffectEmitter;
@@ -50,10 +53,10 @@ export class GameScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'GameScene' });
+        this._objMng = ObjectMng.getInstance();
     }
 
     public init(aData: any) {
-        this._objects = [];
         let gd = GameData.getInstance();
         gd.energy = 0;
     }
@@ -64,12 +67,14 @@ export class GameScene extends Phaser.Scene {
 
     public create(): void {
 
+        this._objMng.init(this);
+
         this.initEffects();
 
         let bg = this.add.group({
             key: 'game',
             frame: 'effects/star2',
-            frameQuantity: 2000
+            frameQuantity: 3000
         });
         let rect = new Phaser.Geom.Rectangle(-Config.GW * 10, -Config.GH * 10, Config.GW * 20, Config.GH * 20);
         Phaser.Actions.RandomRectangle(bg.getChildren(), rect);
@@ -78,7 +83,7 @@ export class GameScene extends Phaser.Scene {
         this._dummySpaceObjects = this.add.container();
         this._dummyObjects = this.add.container();
 
-        this.allies = this.physics.add.group();
+        // this.allies = this.physics.add.group();
         this.bullets = this.physics.add.group();
         this.asteroids = this.physics.add.group();
         this.energy = this.physics.add.group();
@@ -88,17 +93,19 @@ export class GameScene extends Phaser.Scene {
         this.generateAsteroid();
 
         this._station = new Station(this, 0, 0, this._dummyBgObjects);
-        this._objects.push(this._station);
+        this._objMng.addObject(this._station);
 
         this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.y, this._dummyObjects);
         this._ship.once(ShipEvents.destroyed, this.onShipDestroy, this);
-        this._objects.push(this._ship);
+        this._objMng.addObject(this._ship);
 
         this.cameras.main.centerOn(0, 0);
         this.cameras.main.startFollow(this._ship.image, false);
         this.cameras.main.setBackgroundColor(0x0d0019);
 
         this._shipController = new ShipController(this, this._ship);
+
+        this._asterSpawner = new AsteroidSpawner(this, this._ship, this._dummySpaceObjects);
 
         // init game data
         let gd = GameData.getInstance();
@@ -171,7 +178,7 @@ export class GameScene extends Phaser.Scene {
 
     private initPhysics() {
 
-        this._shipEnergyOverlap = this.physics.add.overlap(this.allies, this.energy, (aShipImage: any, aEnergyImage: any) => {
+        this._shipEnergyOverlap = this.physics.add.overlap(this._ship.image, this.energy, (aShipImage: any, aEnergyImage: any) => {
             let ship = aShipImage.object as Ship;
             let energy = aEnergyImage.object as Energy;
             energy.free();
@@ -187,23 +194,59 @@ export class GameScene extends Phaser.Scene {
             if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
         });
 
-        this._allyAsteroidsCollider = this.physics.add.collider(this.allies, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
-            let ship = aAllyImage.object as Ship;
+        this._allyAsteroidsCollider = this.physics.add.collider(this._ship.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
+            if (aAllyImage.object instanceof Ship) {
+                let ship = aAllyImage.object as Ship;
+                let asteroid = aAsteroidImage.object as Asteroid;
+                let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
+                let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
+                let hitPower = vel1.clone().add(vel2.clone().negate()).length();
+                let hitFactor = hitPower / 100;
+                LogMng.debug(`hit power: ${hitPower}`);
+                let effectPos = {
+                    x: (aAllyImage.x + aAsteroidImage.x) / 2,
+                    y: (aAllyImage.y + aAsteroidImage.y) / 2
+                }
+                if (hitPower > 50) this._asteroidHitEffectEmitter.explode(10, effectPos.x, effectPos.y);
+                asteroid.hit(ship.damage / 10 * hitFactor);
+                ship.hit(hitPower / 100);
+
+                if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
+            }
+            else if (aAllyImage.object instanceof Station) {
+                let station = aAllyImage.object as Station;
+                let asteroid = aAsteroidImage.object as Asteroid;
+                let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
+                let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
+                let hitPower = vel1.clone().add(vel2.clone().negate()).length();
+                let hitFactor = hitPower / 100;
+                LogMng.debug(`hit power: ${hitPower}`);
+                let effectPos = {
+                    x: (aAllyImage.x + aAsteroidImage.x) / 2,
+                    y: (aAllyImage.y + aAsteroidImage.y) / 2
+                }
+                if (hitPower > 50) this._asteroidHitEffectEmitter.explode(10, effectPos.x, effectPos.y);
+                asteroid.hit(10 * hitFactor);
+                // station.hit(hitPower / 100);
+                if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
+            }
+        });
+
+        this._allyAsteroidsCollider = this.physics.add.overlap(this._station.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
+            let station = aAllyImage.object as Station;
             let asteroid = aAsteroidImage.object as Asteroid;
             let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
             let vel2: Phaser.Math.Vector2 = aAsteroidImage.body.velocity;
             let hitPower = vel1.clone().add(vel2.clone().negate()).length();
             let hitFactor = hitPower / 100;
-            LogMng.debug(`hit power: ${hitPower}`);
+            // LogMng.debug(`hit power: ${hitPower}`);
             let effectPos = {
                 x: (aAllyImage.x + aAsteroidImage.x) / 2,
                 y: (aAllyImage.y + aAsteroidImage.y) / 2
             }
             if (hitPower > 50) this._asteroidHitEffectEmitter.explode(10, effectPos.x, effectPos.y);
-            asteroid.hit(ship.damage / 10 * hitFactor);
-            ship.hit(hitPower / 100);
-            // aAllyImage.destroy();
-
+            asteroid.hit(10 * hitFactor);
+            // station.hit(hitPower / 100);
             if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
         });
 
@@ -236,12 +279,28 @@ export class GameScene extends Phaser.Scene {
         gui.add(OBJ, 'damage200');
     }
 
+    private generateAsteroid() {
+        const wr = Config.GAME.WORLD_RADIUS;
+        for (let i = 0; i < Config.ASTEROIDS.COUNT; i++) {
+            let v2 = new Phaser.Math.Vector2(MyMath.randomInRange(-1, 1), MyMath.randomInRange(-1, 1));
+            v2.normalize().scale(MyMath.randomInRange(1000, wr));
+            // let distPerc = v2.length() / wr;
+            // let hp = distPerc * Config.ASTEROIDS.MAX_HP;
+            // let scale = 1 + MyMath.randomInRange(distPerc * 3.5, distPerc * 4);
+            // let size = Math.trunc(distPerc * 3) + 1;
+            // LogMng.debug(`aster hp: ${hp}`);
+            // let aster = new Asteroid(this, v2.x, v2.y, hp, scale, this._dummySpaceObjects);
+            // this._objects.push(aster);
+            this._objMng.createAsteroid(v2.x, v2.y, this._dummySpaceObjects)
+        }
+    }
+
     private destroyAsteroid(aAsteroidImage) {
         let asteroid = aAsteroidImage.object as Asteroid;
         let x = aAsteroidImage.x;
         let y = aAsteroidImage.y;
         let enCnt = Math.trunc(asteroid.scale) + MyMath.randomIntInRange(1, 3);
-            
+
         this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
         // aAsteroidImage.destroy();
         asteroid.free();
@@ -249,29 +308,15 @@ export class GameScene extends Phaser.Scene {
         // energy drop
         for (let i = 0; i < enCnt; i++) {
             let energy = new Energy(this, x, y, this._dummyBgObjects, enCnt);
-            this._objects.push(energy);
+            // this._objects.push(energy);
+            this._objMng.addObject(energy)
         }
     }
 
-    private generateAsteroid() {
-        const wr = Config.GAME.WORLD_RADIUS;
-        for (let i = 0; i < Config.ASTEROIDS.COUNT; i++) {
-            let v2 = new Phaser.Math.Vector2(MyMath.randomInRange(-1, 1), MyMath.randomInRange(-1, 1));
-            v2.normalize().scale(MyMath.randomInRange(1000, wr));
-            let distPerc = v2.length() / wr;
-            let hp = distPerc * Config.ASTEROIDS.MAX_HP;
-            let scale = 1 + MyMath.randomInRange(distPerc * 3.5, distPerc * 4);
-            // let size = Math.trunc(distPerc * 3) + 1;
-            // LogMng.debug(`aster hp: ${hp}`);
-            let aster = new Asteroid(this, v2.x, v2.y, hp, scale, this._dummySpaceObjects);
-            this._objects.push(aster);
-        }
-    }
-    
     private onSceneShutdown() {
 
         GameEvents.getInstance().emit(GameEvents.GAME_CLOSE);
-        this.allies.destroy();
+        // this.allies.destroy();
         this.bullets.destroy();
         this.asteroids.destroy();
         this.energy.destroy();
@@ -279,11 +324,7 @@ export class GameScene extends Phaser.Scene {
         this.enemyBullets.destroy();
 
         // objects
-        for (let i = this._objects.length - 1; i >= 0; i--) {
-            const obj = this._objects[i];
-            obj.free();
-        }
-        this._objects = [];
+        this._objMng.clear();
         this._ship = null;
         this._station = null;
         this._shipController = null;
@@ -310,15 +351,7 @@ export class GameScene extends Phaser.Scene {
 
         this._shipController?.update(dt);
 
-        for (let i = this._objects.length - 1;  i >= 0; i--) {
-            const obj = this._objects[i];
-            if (obj.destroyed) {
-                this._objects.splice(i, 1);
-            }
-            else {
-                obj.update(dt);
-            }
-        }
+        this._objMng.update(dt);
 
         let gd = GameData.getInstance();
         let shipDist = MyMath.getVec2Length(0, 0, this._ship.image.x, this._ship.image.y);
@@ -327,6 +360,7 @@ export class GameScene extends Phaser.Scene {
 
         // this._gui.update(dt);
 
+        this._asterSpawner.update(dt);
 
     }
 

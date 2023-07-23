@@ -48,7 +48,8 @@ export class Station extends GameObject {
         this._scene = scene;
         this._parent = parent;
         let t = this.getTextureByLevel(1);
-        this.image = this._scene.allies.create(x, y, t.t, t.frame);
+        // this.image = this._scene.allies.create(x, y, t.t, t.frame);
+        this.image = this._scene.physics.add.image(x, y, t.t, t.frame);
         this._parent.add(this.image);
         this.setLevel(1);
     }

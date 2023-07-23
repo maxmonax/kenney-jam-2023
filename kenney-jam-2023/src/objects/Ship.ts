@@ -75,7 +75,8 @@ export class Ship extends GameObject {
     }
 
     private initHero(x, y) {
-        this.image = this._scene.allies.create(x, y, 'game', this.getFrameByLevel(1));
+        // this.image = this._scene.allies.create(x, y, 'game', this.getFrameByLevel(1));
+        this.image = this._scene.physics.add.image(x, y, 'game', this.getFrameByLevel(1));
         this.image.object = this;
         this._parent.add(this.image);
         // this.image.invincible = false;
