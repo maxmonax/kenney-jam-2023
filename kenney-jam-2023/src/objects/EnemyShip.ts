@@ -1,5 +1,6 @@
 import { HpBar } from "../gui/game/HpBar";
 import { GameScene } from "../scenes/GameScene";
+import { AudioAlias } from "../sound/SndMng";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
 import { GameObject } from "./GameObject";
@@ -221,6 +222,8 @@ export class EnemyShip extends GameObject {
                 this._hpBar = null;
             }
         });
+
+        this._scene.sound.play(AudioAlias.explosion, { volume: MyMath.randomInRange(.2, .6) });
 
         this.image.destroy();
 

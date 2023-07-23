@@ -15,11 +15,15 @@ export class ShipController {
     private _timerFire = 0;
     
     private _keyW: Phaser.Input.Keyboard.Key;
-    private _keyUp: Phaser.Input.Keyboard.Key;
     private _keyA: Phaser.Input.Keyboard.Key;
-    private _keyLeft: Phaser.Input.Keyboard.Key;
+    private _keyS: Phaser.Input.Keyboard.Key;
     private _keyD: Phaser.Input.Keyboard.Key;
+
+    private _keyUp: Phaser.Input.Keyboard.Key;
+    private _keyLeft: Phaser.Input.Keyboard.Key;
     private _keyRight: Phaser.Input.Keyboard.Key;
+    private _keyDown: Phaser.Input.Keyboard.Key;
+
     private _keySpace: Phaser.Input.Keyboard.Key;
 
     constructor(scene: GameScene, ship: Ship) {
@@ -29,9 +33,11 @@ export class ShipController {
         this._keyW = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this._keyA = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this._keyD = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        this._keyS = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this._keyUp = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this._keyLeft = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         this._keyRight = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        this._keyDown = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         this._keySpace = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
@@ -50,8 +56,15 @@ export class ShipController {
 
     updateMoving(dt: number) {
         let frwDown = this._keyUp.isDown || this._keyW.isDown;
+        let backDown = this._keyDown.isDown || this._keyS.isDown;
+
+        if (frwDown && backDown) frwDown = backDown = false;
+
         if (frwDown) {
             this._scene.physics.velocityFromRotation(this._ship.image.rotation, ACCELERATION, this._ship.image.body.acceleration);
+        }
+        else if (backDown) {
+            this._scene.physics.velocityFromRotation(this._ship.image.rotation, -ACCELERATION / 4, this._ship.image.body.acceleration);
         }
         else {
             this._ship.image.body.acceleration.x = 0;
@@ -101,7 +114,6 @@ export class ShipController {
                 this._ship.bulletTexture
             );
         }
-
         
     }
 

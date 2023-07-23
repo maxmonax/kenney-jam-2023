@@ -1,5 +1,6 @@
 import { HpBar } from "../gui/game/HpBar";
 import { GameScene } from "../scenes/GameScene";
+import { AudioAlias } from "../sound/SndMng";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
 import { GameObject } from "./GameObject";
@@ -121,7 +122,7 @@ export class Ship extends GameObject {
     }
 
     public set hp(v: number) {
-        this._hp = v;
+        this._hp = Math.min(v, this.maxHp());
     }
 
     public get level(): number {
@@ -229,6 +230,8 @@ export class Ship extends GameObject {
                 this._hpBar = null;
             }
         });
+
+        this._scene.sound.play(AudioAlias.explosion, { volume: MyMath.randomInRange(.5, 1) });
 
         this.image.destroy();
 

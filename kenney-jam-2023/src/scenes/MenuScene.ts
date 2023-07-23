@@ -2,7 +2,7 @@ import { Config } from "../data/Config";
 import { Params } from "../data/Params";
 import { FrontEvents } from "../events/FrontEvents";
 import { GameEvents } from "../events/GameEvents";
-import { AudioAlias } from "../sound/SndMng";
+import { AudioAlias, SndMng } from "../sound/SndMng";
 import { LogMng } from "../utils/LogMng";
 
 export class MenuScene extends Phaser.Scene {
@@ -80,13 +80,10 @@ export class MenuScene extends Phaser.Scene {
         this.hideBlackCurtain();
         
         // music
-        // if (!Params.music) {
-        //     Params.music = this.sound.add('music', { loop: true, volume: .2 });
-        //     Params.music.play();
-        // }
-        // else {
-        //     Params.music.volume = .2;
-        // }
+        SndMng.scene = this;
+        if (!SndMng.getMusic(AudioAlias.music)) {
+            SndMng.playMusic(AudioAlias.music, 0, Config.GAME.MUSIC_VOLUME, 1000);
+        }
 
         this.events.once('shutdown', this.onSceneShutdown, this);
 

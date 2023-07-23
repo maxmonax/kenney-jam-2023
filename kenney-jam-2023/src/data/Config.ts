@@ -15,6 +15,7 @@ export const Config = {
     DRAW_DEBUG_BORDER: false,
 
     GAME: {
+        MUSIC_VOLUME: .4,
         DAMP_FACTOR: .995,
         DAMP_ASTER: .998,
         WORLD_RADIUS: 50000

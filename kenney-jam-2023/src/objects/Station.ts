@@ -7,27 +7,32 @@ const LEVELS = [
     {
         level: 1, hp: 1000, income: 0, incomeDelay: 10, damage: 20, cost: 0,
         firePauseDelay: .4, firePoints: [{ x: 40, y: 0 }],
-        physics: { w: 200, h: 200 }
+        physics: { w: 200, h: 200 },
+        hpRestore: 2
     },
     {
         level: 2, hp: 2000, income: 1, incomeDelay: 5, damage: 30, cost: 200,
         firePauseDelay: .3, firePoints: [{ x: 50, y: 0 }],
-        physics: { w: 250, h: 250 }
+        physics: { w: 250, h: 250 },
+        hpRestore: 4
     },
     {
         level: 3, hp: 3000, income: 2, incomeDelay: 5, damage: 40, cost: 500,
         firePauseDelay: .3, firePoints: [{ x: 50, y: -20 }, { x: 50, y: 20 }],
-        physics: { w: 300, h: 300 }
+        physics: { w: 300, h: 300 },
+        hpRestore: 6
     },
     {
         level: 4, hp: 4000, income: 4, incomeDelay: 5, damage: 50, cost: 1000,
         firePauseDelay: .2, firePoints: [{ x: 50, y: -28 }, { x: 50, y: 28 }],
-        physics: { w: 400, h: 400 }
+        physics: { w: 400, h: 400 },
+        hpRestore: 10
     },
     {
         level: 5, hp: 5000, income: 10, incomeDelay: 5, damage: 100, cost: 3000,
         firePauseDelay: .1, firePoints: [{ x: 55, y: -28 }, { x: 55, y: 28 }],
-        physics: { w: 500, h: 500 }
+        physics: { w: 500, h: 500 },
+        hpRestore: 20
     },
 ];
 
@@ -58,6 +63,10 @@ export class Station extends GameObject {
         return LEVELS[this.level].cost;
     }
 
+    public get hpRestore(): number {
+        return LEVELS[this.level - 1].hpRestore;
+    }
+    
     isMaxLevel(): boolean {
         return this.level == LEVELS.length;
     }

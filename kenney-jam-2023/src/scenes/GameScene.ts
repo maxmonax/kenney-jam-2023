@@ -14,6 +14,7 @@ import { Energy } from "../objects/Energy";
 import { GameObject } from "../objects/GameObject";
 import { Ship, ShipEvents } from "../objects/Ship";
 import { Station } from "../objects/Station";
+import { AudioAlias } from "../sound/SndMng";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
 
@@ -41,7 +42,7 @@ export class GameScene extends Phaser.Scene {
 
     _shipEnergyOverlap;
     _bulletAsteroidsOverlap;
-    _allyAsteroidsCollider;
+    // _allyAsteroidsCollider;
 
     // objects
     private _objMng: ObjectMng;
@@ -55,7 +56,8 @@ export class GameScene extends Phaser.Scene {
     private _asteroidDestroyEffectEmitter;
     // flags
     private _isPause = true;
-
+    private _healTimer = 0;
+    
     constructor() {
         super({ key: 'GameScene' });
         this._objMng = ObjectMng.getInstance();
@@ -135,6 +137,7 @@ export class GameScene extends Phaser.Scene {
         // this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.x
         GameEvents.getInstance().on(GameEvents.GUI_TELEPORT_PRESSED, () => {
             LogMng.debug('GameScene: GUI_TELEPORT_PRESSED');
+            this.sound.play(AudioAlias.teleport, { volume: MyMath.randomInRange(.5, .8) });
             this._ship.image.body.velocity.x *= 0.1;
             this._ship.image.body.velocity.y *= 0.1;
             this._ship.image.x = CONFIG.ship.startPos.x;
@@ -188,6 +191,7 @@ export class GameScene extends Phaser.Scene {
             let ship = aShipImage.object as Ship;
             let energy = aEnergyImage.object as Energy;
             energy.free();
+            this.sound.play(AudioAlias.coin, { volume: MyMath.randomInRange(.4, .8) });
             GameData.getInstance().energy += energy.value;
         });
 
@@ -204,6 +208,7 @@ export class GameScene extends Phaser.Scene {
             let bullet = aBulletImage.object as Bullet;
             if (bullet.isEnemy) {
                 this._ship.hit(bullet.damage);
+                this.sound.play(AudioAlias.bullet, { volume: MyMath.randomInRange(.1, .5) });
                 bullet.free();
             }
         });
@@ -213,11 +218,12 @@ export class GameScene extends Phaser.Scene {
             let bullet = aBulletImage.object as Bullet;
             if (!bullet.isEnemy) {
                 e.hit(bullet.damage);
+                this.sound.play(AudioAlias.bullet, { volume: MyMath.randomInRange(.1, .5) });
                 bullet.free();
             }
         });
 
-        this._allyAsteroidsCollider = this.physics.add.collider(this._ship.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
+        this.physics.add.collider(this._ship.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
             if (aAllyImage.object instanceof Ship) {
                 let ship = aAllyImage.object as Ship;
                 let asteroid = aAsteroidImage.object as Asteroid;
@@ -255,7 +261,7 @@ export class GameScene extends Phaser.Scene {
             }
         });
 
-        this._allyAsteroidsCollider = this.physics.add.overlap(this._station.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
+        this.physics.add.overlap(this._station.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
             let station = aAllyImage.object as Station;
             let asteroid = aAsteroidImage.object as Asteroid;
             let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
@@ -332,6 +338,8 @@ export class GameScene extends Phaser.Scene {
         // aAsteroidImage.destroy();
         asteroid.free();
 
+        this.sound.play(AudioAlias.meteor, { volume: 1 });
+
         // energy drop
         for (let i = 0; i < enCnt; i++) {
             let energy = new Energy(this, x, y, this._dummyBgObjects, enCnt);
@@ -381,11 +389,17 @@ export class GameScene extends Phaser.Scene {
         this._objMng.update(dt);
 
         let gd = GameData.getInstance();
-        let shipDist = MyMath.getVec2Length(0, 0, this._ship.image.x, this._ship.image.y);
+        let shipDist = MyMath.getVec2Length(this._station.image.x, this._station.image.y, this._ship.image.x, this._ship.image.y);
         gd.teleportAvailable = shipDist > 1500;
         gd.upBtnsAvailable = shipDist <= 1000;
-
-        // this._gui.update(dt);
+        // heal
+        if (shipDist <= 600) {
+            this._healTimer -= dt;
+            if (this._healTimer <= 0) {
+                this._healTimer = 1;
+                this._ship.hp += this._station.hpRestore;
+            }
+        }
 
         this._asterSpawner.update(dt);
         this._enemySpawner.update(dt);

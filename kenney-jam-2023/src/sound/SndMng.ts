@@ -6,6 +6,12 @@ export enum AudioAlias {
     click = 'click',
     laserSmall_001 = 'laserSmall_001',
     laserSmall_002 = 'laserSmall_002',
+    music = 'music',
+    meteor = 'meteor',
+    coin = 'coin',
+    bullet = 'bullet',
+    explosion = 'explosion',
+    teleport = 'teleport'
 }
 
 // loading sounds
@@ -13,6 +19,12 @@ export const LOAD_DATA = [
     { alias: AudioAlias.click, file: 'click.mp3' },
     { alias: AudioAlias.laserSmall_001, file: 'laserSmall_001.ogg' },
     { alias: AudioAlias.laserSmall_002, file: 'laserSmall_002.ogg' },
+    { alias: AudioAlias.music, file: 'music.mp3' },
+    { alias: AudioAlias.meteor, file: 'meteor.mp3' },
+    { alias: AudioAlias.coin, file: 'coin.mp3' },
+    { alias: AudioAlias.bullet, file: 'bullet.mp3' },
+    { alias: AudioAlias.explosion, file: 'explosion.mp3' },
+    { alias: AudioAlias.teleport, file: 'teleport.mp3' },
 ];
 
 export class SndMng {
