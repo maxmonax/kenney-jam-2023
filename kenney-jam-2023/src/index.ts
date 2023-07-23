@@ -7,6 +7,7 @@ import { GameScene } from "./scenes/GameScene";
 import { PreloaderScene } from "./scenes/PreloaderScene";
 import { MenuScene } from "./scenes/MenuScene";
 import { FrontEvents } from "./events/FrontEvents";
+import { GameGuiScene } from "./scenes/GameGuiScene";
 
 function startGame(aGameParams: {
     parentId: string;
@@ -28,14 +29,14 @@ function startGame(aGameParams: {
         physics: {
             default: 'arcade',
             arcade: {
-                // debug: true,
+                debug: true,
                 gravity: { y: 0 }
             }
         },
         // plugins: {
             // scene: [{ key: 'SpinePlugin', plugin: window['SpinePlugin'], mapping: 'spine' }]
         // },
-        scene: [BootScene, PreloaderScene, MenuScene, GameScene],
+        scene: [BootScene, PreloaderScene, MenuScene, GameScene, GameGuiScene],
     });
 
 }

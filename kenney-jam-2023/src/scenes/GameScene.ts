@@ -1,36 +1,46 @@
 import { ShipController } from "../controls/ShipController";
 import { Config } from "../data/Config";
-import { Params } from "../data/Params";
+import { GameData } from "../data/GameData";
 import { DebugGui } from "../debug/DebugGui";
-import { FrontEvents } from "../events/FrontEvents";
-import { GameGui } from "../gui/game/GameGui";
+import { GameEvents } from "../events/GameEvents";
 import { Asteroid } from "../objects/Asteriod";
 import { Bullet } from "../objects/Bullet";
+import { Energy } from "../objects/Energy";
 import { GameObject } from "../objects/GameObject";
 import { Ship } from "../objects/Ship";
 import { Station } from "../objects/Station";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
 
+const CONFIG = {
+    ship: {
+        startPos: {
+            x: 350,
+            y: -180
+        }
+    }
+}
+
 export class GameScene extends Phaser.Scene {
 
     private _dummyBgObjects: Phaser.GameObjects.Container;
     private _dummySpaceObjects: Phaser.GameObjects.Container;
     private _dummyObjects: Phaser.GameObjects.Container;
-    private _dummyGui: Phaser.GameObjects.Container;
     // physics
     allies: Phaser.Physics.Arcade.Group;
     bullets: Phaser.Physics.Arcade.Group;
     asteroids: Phaser.Physics.Arcade.Group;
+    energy: Phaser.Physics.Arcade.Group;
     enemies: Phaser.Physics.Arcade.Group;
     enemyBullets: Phaser.Physics.Arcade.Group;
+    _shipEnergyOverlap;
+    _bulletAsteroidsOverlap;
+    _allyAsteroidsCollider;
     // objects
     private _objects: GameObject[];
-    private _playerShip: Ship;
+    private _ship: Ship;
     private _station: Station;
     private _shipController: ShipController;
-    // GUI
-    private _gui: GameGui;
     // effects
     private _asteroidHitEffectEmitter;
     private _asteroidDestroyEffectEmitter;
@@ -41,6 +51,8 @@ export class GameScene extends Phaser.Scene {
 
     public init(aData: any) {
         this._objects = [];
+        let gd = GameData.getInstance();
+        gd.energyCnt = 0;
     }
 
     public preload(): void {
@@ -62,14 +74,11 @@ export class GameScene extends Phaser.Scene {
         this._dummyBgObjects = this.add.container();
         this._dummySpaceObjects = this.add.container();
         this._dummyObjects = this.add.container();
-        this._dummyGui = this.add.container();
-        this._dummyGui.setScrollFactor(0);
-
-        this._gui = new GameGui(this, this._dummyGui);
 
         this.allies = this.physics.add.group();
         this.bullets = this.physics.add.group();
         this.asteroids = this.physics.add.group();
+        this.energy = this.physics.add.group();
         this.enemies = this.physics.add.group();
         this.enemyBullets = this.physics.add.group();
 
@@ -78,17 +87,38 @@ export class GameScene extends Phaser.Scene {
         this._station = new Station(this, 0, 0, this._dummyBgObjects);
         this._objects.push(this._station);
 
-        this._playerShip = new Ship(this, 350, -180, this._dummyObjects);
-        this._objects.push(this._playerShip);
+        this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.y, this._dummyObjects);
+        this._objects.push(this._ship);
 
         this.cameras.main.centerOn(0, 0);
-        this.cameras.main.startFollow(this._playerShip.image, false);
+        this.cameras.main.startFollow(this._ship.image, false);
         this.cameras.main.setBackgroundColor(0x0d0019);
 
-        this._shipController = new ShipController(this, this._playerShip);
+        this._shipController = new ShipController(this, this._ship);
 
         this.initPhysics();
         this.initDebug();
+
+        // events
+        GameEvents.getInstance().emit(GameEvents.GAME_OPEN);
+        this.events.on('shutdown', () => {
+            this.onSceneShutdown();
+        });
+
+        GameEvents.getInstance().on(GameEvents.GUI_MENU_PRESSED, () => {
+            LogMng.debug('GameScene: GUI_MENU_PRESSED');
+            this.scene.start('MenuScene');
+        }, this);
+
+        // this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.x
+        GameEvents.getInstance().on(GameEvents.GUI_TELEPORT_PRESSED, () => {
+            LogMng.debug('GameScene: GUI_TELEPORT_PRESSED');
+            this._ship.image.body.velocity.x *= 0.1;
+            this._ship.image.body.velocity.y *= 0.1;
+            this._ship.image.x = CONFIG.ship.startPos.x;
+            this._ship.image.y = CONFIG.ship.startPos.y;
+        }, this);
+
     }
 
     private initEffects() {
@@ -114,19 +144,24 @@ export class GameScene extends Phaser.Scene {
     }
 
     private initPhysics() {
-        this.physics.add.overlap(this.bullets, this.asteroids, (aBulletImage: any, aAsteroidImage: any) => {
+
+        this._shipEnergyOverlap = this.physics.add.overlap(this.allies, this.energy, (aShipImage: any, aEnergyImage: any) => {
+            let ship = aShipImage.object as Ship;
+            let energy = aEnergyImage.object as Energy;
+            energy.free();
+            GameData.getInstance().addEnergy(energy.value);
+        });
+
+        this._bulletAsteroidsOverlap = this.physics.add.overlap(this.bullets, this.asteroids, (aBulletImage: any, aAsteroidImage: any) => {
             let bullet = aBulletImage.object as Bullet;
             let asteroid = aAsteroidImage.object as Asteroid;
             this._asteroidHitEffectEmitter.explode(20, aBulletImage.x, aBulletImage.y);
             asteroid.hit(bullet.damage);
-            aBulletImage.destroy();
-            if (asteroid.hp <= 0) {
-                this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
-                aAsteroidImage.destroy();
-            }
+            bullet.free();
+            if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
         });
 
-        this.physics.add.collider(this.allies, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
+        this._allyAsteroidsCollider = this.physics.add.collider(this.allies, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
             let ship = aAllyImage.object as Ship;
             let asteroid = aAsteroidImage.object as Asteroid;
             let vel1: Phaser.Math.Vector2 = aAllyImage.body.velocity;
@@ -143,16 +178,26 @@ export class GameScene extends Phaser.Scene {
             ship.hit(hitPower * asteroid.mass / 100);
             // aAllyImage.destroy();
 
-            if (asteroid.hp <= 0) {
-                this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
-                aAsteroidImage.destroy();
-
-                // energy drop
-                
-
-            }
+            if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
         });
 
+    }
+
+    private destroyAsteroid(aAsteroidImage) {
+        let asteroid = aAsteroidImage.object as Asteroid;
+        let x = aAsteroidImage.x;
+        let y = aAsteroidImage.y;
+        let enCnt = Math.trunc(asteroid.scale) + MyMath.randomIntInRange(1, 3);
+            
+        this._asteroidDestroyEffectEmitter.explode(10, aAsteroidImage.x, aAsteroidImage.y);
+        // aAsteroidImage.destroy();
+        asteroid.free();
+
+        // energy drop
+        for (let i = 0; i < enCnt; i++) {
+            let energy = new Energy(this, x, y, this._dummyBgObjects, enCnt);
+            this._objects.push(energy);
+        }
     }
 
     private generateAsteroid() {
@@ -172,7 +217,7 @@ export class GameScene extends Phaser.Scene {
     private initDebug() {
         const OBJ = {
             shipLevelUp: () => {
-                this._playerShip.setLevel(this._playerShip.level + 1);
+                this._ship.setLevel(this._ship.level + 1);
             },
             stationLevelUp: () => {
                 this._station.setLevel(this._station.level + 1);
@@ -183,18 +228,53 @@ export class GameScene extends Phaser.Scene {
         gui.add(OBJ, 'stationLevelUp');
     }
 
+    private onSceneShutdown() {
+
+        GameEvents.getInstance().emit(GameEvents.GAME_CLOSE);
+        this.allies.destroy();
+        this.bullets.destroy();
+        this.asteroids.destroy();
+        this.energy.destroy();
+        this.enemies.destroy();
+        this.enemyBullets.destroy();
+
+        // objects
+        for (let i = this._objects.length - 1; i >= 0; i--) {
+            const obj = this._objects[i];
+            obj.free();
+        }
+        this._objects = [];
+        this._ship = null;
+        this._station = null;
+        this._shipController = null;
+
+        // effects
+        this._asteroidHitEffectEmitter.destroy();
+        this._asteroidDestroyEffectEmitter.destroy();
+
+    }
+
     update(allTime: number, dtMs: number) {
         // get dt in Sec
         let dt = dtMs * 0.001;
 
         this._shipController?.update(dt);
 
-        for (let i = 0; i < this._objects.length; i++) {
+        for (let i = this._objects.length - 1;  i >= 0; i--) {
             const obj = this._objects[i];
-            obj.update(dt);
+            if (obj.destroyed) {
+                this._objects.splice(i, 1);
+            }
+            else {
+                obj.update(dt);
+            }
         }
 
-        this._gui.update(dt);
+        let gd = GameData.getInstance();
+        let shipDist = MyMath.getVec2Length(0, 0, this._ship.image.x, this._ship.image.y);
+        gd.teleportAvailable = shipDist > 1500;
+
+        // this._gui.update(dt);
 
     }
 

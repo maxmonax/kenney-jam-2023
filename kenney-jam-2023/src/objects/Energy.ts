@@ -1,33 +1,62 @@
+import { Config } from "../data/Config";
 import { GameScene } from "../scenes/GameScene";
 import { MyMath } from "../utils/MyMath";
 import { GameObject } from "./GameObject";
 
 export class Energy extends GameObject {
     private _texture = 'powerup';
+    private _rotSpd = 0;
     scene: GameScene;
     image;
     direction: number;
     destroyTimer;
-    damage: number;
+    value = 0;
 
-    constructor(scene: GameScene, x, y, damage) {
+    constructor(scene: GameScene, x, y, parent, value: number) {
         super();
         this.scene = scene;
-        this.damage = damage;
-        
-        let velocity = MyMath.randomInRange(10, 50);
+        this.value = value;
 
-        this.image = this.scene.bullets.create(x, y, 'game', this._texture)
-            .setRotation(this.direction - Math.PI / 2)
-            .setVelocityX(velocity * Math.cos(this.direction))
-            .setVelocityY(velocity * Math.sin(this.direction));
+        let velocity = {
+            x: MyMath.randomInRange(-100, 100),
+            y: MyMath.randomInRange(-100, 100)
+        };
 
+        this._rotSpd = MyMath.randomInRange(-1, 1);
+
+        let rot = MyMath.randomInRange(0, Math.PI / 2);
+
+        this.image = this.scene.energy.create(x, y, 'game', this._texture)
+            .setRotation(rot)
+            .setVelocityX(velocity.x)
+            .setVelocityY(velocity.y);
+        parent.add(this.image);
         this.image.object = this;
         
         this.destroyTimer = this.scene.time.delayedCall(30000, () => {
             if (this.image) this.image.destroy();
             this.destroyTimer.remove();
-        }, null, this.scene);
+        }, [], this.scene);
+    }
+
+    private updateMoving(dt: number) {
+        let df = Config.GAME.DAMP_FACTOR;
+        try {
+            this.image.body.velocity.x *= df;
+            this.image.body.velocity.y *= df;
+        } catch (error) {
+
+        }
+    }
+
+    free(): void {
+        this.image.destroy();
+        super.free();
+    }
+
+    update(dt: number) {
+        this.updateMoving(dt);
+        this.image.rotation += this._rotSpd * dt;
     }
 
 }

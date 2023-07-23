@@ -951,6 +951,9 @@
                 <false/>
             </struct>
             <key type="filename">game/powerup.png</key>
+            <key type="filename">game/ui/powerupBlue.png</key>
+            <key type="filename">game/ui/powerupGreen.png</key>
+            <key type="filename">game/ui/powerupYellow.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -1027,6 +1030,25 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">game/ui/board/arrow_counterclockwise.png</key>
+            <key type="filename">game/ui/board/arrow_diagonal_cross.png</key>
+            <key type="filename">game/ui/board/hourglass.png</key>
+            <key type="filename">game/ui/board/shield.png</key>
+            <key type="filename">game/ui/board/structure_house.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/ui/btnPlay.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1039,6 +1061,63 @@
                 <rect>56,56,111,111</rect>
                 <key>scale9Paddings</key>
                 <rect>56,56,111,111</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/menu.png</key>
+            <key type="filename">game/ui/ship_up.png</key>
+            <key type="filename">game/ui/station_up.png</key>
+            <key type="filename">game/ui/teleport.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>18,17,35,34</rect>
+                <key>scale9Paddings</key>
+                <rect>18,17,35,34</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/white/arrowDown.png</key>
+            <key type="filename">game/ui/white/arrowLeft.png</key>
+            <key type="filename">game/ui/white/arrowRight.png</key>
+            <key type="filename">game/ui/white/arrowUp.png</key>
+            <key type="filename">game/ui/white/audioOff.png</key>
+            <key type="filename">game/ui/white/audioOn.png</key>
+            <key type="filename">game/ui/white/barsHorizontal.png</key>
+            <key type="filename">game/ui/white/checkmark.png</key>
+            <key type="filename">game/ui/white/cross.png</key>
+            <key type="filename">game/ui/white/down.png</key>
+            <key type="filename">game/ui/white/exit.png</key>
+            <key type="filename">game/ui/white/fastForward.png</key>
+            <key type="filename">game/ui/white/gear.png</key>
+            <key type="filename">game/ui/white/home.png</key>
+            <key type="filename">game/ui/white/information.png</key>
+            <key type="filename">game/ui/white/larger.png</key>
+            <key type="filename">game/ui/white/musicOff.png</key>
+            <key type="filename">game/ui/white/musicOn.png</key>
+            <key type="filename">game/ui/white/pause.png</key>
+            <key type="filename">game/ui/white/question.png</key>
+            <key type="filename">game/ui/white/return.png</key>
+            <key type="filename">game/ui/white/shoppingBasket.png</key>
+            <key type="filename">game/ui/white/shoppingCart.png</key>
+            <key type="filename">game/ui/white/smaller.png</key>
+            <key type="filename">game/ui/white/star.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

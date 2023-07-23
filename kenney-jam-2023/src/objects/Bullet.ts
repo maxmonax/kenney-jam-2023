@@ -6,7 +6,7 @@ export class Bullet extends GameObject {
     image;
     direction: number;
     bulletTexture: string;
-    destroyTimer;
+    destroyTimer: Phaser.Time.TimerEvent;
     damage: number;
 
     constructor(scene: GameScene, x, y, damage, direction, velocity, bulletTexture) {
@@ -31,6 +31,16 @@ export class Bullet extends GameObject {
             if (this.image) this.image.destroy();
             this.destroyTimer.remove();
         }, [], this.scene);
+    }
+
+    free() {
+        if (this.destroyTimer) {
+            this.destroyTimer.remove();
+            this.destroyTimer.destroy();
+        }
+        this.scene = null;
+        this.image.destroy();
+        super.free();
     }
 
 }

@@ -43,9 +43,12 @@ export class Station extends GameObject {
 
         // change sprite
         let t = this.getTextureByLevel(level);
-        this.image.setScale(0, 0);
+        this.image.setScale(0.1, 0.1);
         this.image.setTexture(t.t, t.frame);
-        if (this.popTween) this._scene.tweens.remove(this.popTween);
+        if (this.popTween) {
+            this._scene.tweens.remove(this.popTween);
+            this.popTween = null;
+        }
         this.popTween = this._scene.tweens.add({
             // targets: [this.body, this.turbine],
             targets: this.image,

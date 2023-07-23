@@ -25,9 +25,13 @@ export class Asteroid extends GameObject {
         this._scale = scale;
         this.mass = this._scale * 10;
         // this.direction = direction;
-        
+
         this.texture = `asteroids/meteorBrown_big${MyMath.randomIntInRange(1, 4)}`;
         this.createBody(x, y, null);
+    }
+    
+    public get scale(): number {
+        return this._scale;
     }
 
     createBody(x, y, velocity) {
@@ -54,6 +58,7 @@ export class Asteroid extends GameObject {
 
     free() {
         if (this.image) this.image.destroy();
+        super.free();
     }
 
     private updateMoving(dt: number) {
@@ -67,6 +72,7 @@ export class Asteroid extends GameObject {
     }
 
     update(dt: number) {
+        if (this._destroyed) return;
         this.updateMoving(dt);
     }
 
