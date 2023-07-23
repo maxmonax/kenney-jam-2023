@@ -26,23 +26,24 @@ export class AsteroidSpawner extends Phaser.Events.EventEmitter {
         return time[this._ship.level - 1];
     }
 
-    private spawn() {
-        let dir = new Phaser.Math.Vector2(1, 0);
-        dir.rotate(MyMath.randomInRange(0, Math.PI * 2));
-        let spawnDist = MyMath.randomInRange(1500, 2500);
-        let spawnPos = dir.clone().scale(spawnDist);
-        let velocity = spawnPos.clone().negate().scale(MyMath.randomInRange(.2, .6));
-        spawnPos.x += this._ship.image.x;
-        spawnPos.y += this._ship.image.y;
-        this._objMng.createAsteroid(spawnPos.x, spawnPos.y, this.asterParent, velocity.x, velocity.y);
-    }
-
     private updateSpawn(dt: number) {
         this._spawnTimer -= dt;
         if (this._spawnTimer <= 0) {
             this._spawnTimer = this.getSpawnTime()
             this.spawn();
         }
+    }
+
+    spawn() {
+        let dir = new Phaser.Math.Vector2(1, 0);
+        dir.rotate(MyMath.randomInRange(0, Math.PI * 2));
+        let spawnDist = MyMath.randomInRange(1500, 2500);
+        let spawnPos = dir.clone().scale(spawnDist);
+        let velocity = spawnPos.clone().negate().scale(MyMath.randomInRange(.2, .6));
+        velocity.rotate(MyMath.randomInRange(-Math.PI / 6, Math.PI / 6));
+        spawnPos.x += this._ship.image.x;
+        spawnPos.y += this._ship.image.y;
+        this._objMng.createAsteroid(spawnPos.x, spawnPos.y, this.asterParent, velocity.x, velocity.y);
     }
 
     update(dt: number) {

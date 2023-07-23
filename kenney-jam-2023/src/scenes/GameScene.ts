@@ -146,12 +146,14 @@ export class GameScene extends Phaser.Scene {
 
         GameEvents.getInstance().on(GameEvents.GUI_SHIP_UP, () => {
             let cost = this._ship.upgradeCost;
+            if (gd.energy < cost) return;
             this._ship.setLevel(this._ship.level + 1);
             gd.energy -= cost;
         }, this);
 
         GameEvents.getInstance().on(GameEvents.GUI_STATION_UP, () => {
             let cost = this._station.upgradeCost;
+            if (gd.energy < cost) return;
             this._station.setLevel(this._station.level + 1);
             gd.energy -= cost;
         }, this);
@@ -299,6 +301,9 @@ export class GameScene extends Phaser.Scene {
             damage200: () => {
                 this._ship.hit(200);
             },
+            asteroidSpawn: () => {
+                this._asterSpawner.spawn();
+            },
             enemySpawn: () => {
                 this._enemySpawner.spawnEnemy(this._ship.image.x + 500, this._ship.image.y);
             }
@@ -309,6 +314,7 @@ export class GameScene extends Phaser.Scene {
         gui.add(OBJ, 'addEnergy');
         gui.add(OBJ, 'damage50');
         gui.add(OBJ, 'damage200');
+        gui.add(OBJ, 'asteroidSpawn');
         gui.add(OBJ, 'enemySpawn');
     }
 
@@ -368,6 +374,16 @@ export class GameScene extends Phaser.Scene {
         this._asteroidHitEffectEmitter.destroy();
         this._asteroidDestroyEffectEmitter.destroy();
 
+        // events
+        GameEvents.getInstance().on(GameEvents.GUI_MENU_PRESSED, () => {
+            LogMng.debug('GameScene: GUI_MENU_PRESSED');
+            this.scene.start('MenuScene');
+        }, this);
+
+        // this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.x
+        GameEvents.getInstance().removeAllListeners(GameEvents.GUI_TELEPORT_PRESSED);
+        GameEvents.getInstance().removeAllListeners(GameEvents.GUI_SHIP_UP);
+        GameEvents.getInstance().removeAllListeners(GameEvents.GUI_STATION_UP);
     }
 
     private onShipDestroy() {

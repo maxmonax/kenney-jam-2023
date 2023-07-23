@@ -14,6 +14,7 @@ const INTRO_TEXTS = [
         for this you will need energy,\n
         you can find it in asteroids.\n
         Be careful, this sector may not be safe.\n
+        The ship will recover near the station.
     `,
     `
         Oh yes, one more thing...\n
