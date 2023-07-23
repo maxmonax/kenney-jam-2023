@@ -1,5 +1,6 @@
 import { Config } from "../data/Config";
 import { Asteroid } from "../objects/Asteriod";
+import { EnemyShip } from "../objects/EnemyShip";
 import { GameObject } from "../objects/GameObject";
 import { GameScene } from "../scenes/GameScene";
 import { MyMath } from "../utils/MyMath";
@@ -53,6 +54,12 @@ export class ObjectMng {
         if (vy) aster.image.body.velocity.y = vy;
         this._objects.push(aster);
         return aster;
+    }
+
+    createEnemy(x, y, parent): EnemyShip {
+        let ship = new EnemyShip(this._scene, x, y, parent);
+        this.addObject(ship);
+        return ship;
     }
 
     update(dt: number) {

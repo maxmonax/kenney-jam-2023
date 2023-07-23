@@ -4,8 +4,8 @@
 			"image": "game.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 2042,
-				"h": 1748
+				"w": 1933,
+				"h": 1868
 			},
 			"scale": 1,
 			"frames": [
@@ -157,27 +157,6 @@
 					}
 				},
 				{
-					"filename": "particles/scorch_01",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 512,
-						"h": 512
-					},
-					"spriteSourceSize": {
-						"x": 39,
-						"y": 0,
-						"w": 434,
-						"h": 465
-					},
-					"frame": {
-						"x": 530,
-						"y": 1278,
-						"w": 434,
-						"h": 465
-					}
-				},
-				{
 					"filename": "particles/scorch_03",
 					"rotated": false,
 					"trimmed": true,
@@ -192,10 +171,31 @@
 						"h": 494
 					},
 					"frame": {
-						"x": 1503,
-						"y": 1180,
+						"x": 530,
+						"y": 1278,
 						"w": 474,
 						"h": 494
+					}
+				},
+				{
+					"filename": "particles/scorch_01",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 512,
+						"h": 512
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 0,
+						"w": 434,
+						"h": 465
+					},
+					"frame": {
+						"x": 1,
+						"y": 1299,
+						"w": 434,
+						"h": 465
 					}
 				},
 				{
@@ -514,132 +514,6 @@
 					}
 				},
 				{
-					"filename": "pers/robot_wide",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 192,
-						"h": 256
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 74,
-						"w": 188,
-						"h": 182
-					},
-					"frame": {
-						"x": 1,
-						"y": 1299,
-						"w": 188,
-						"h": 182
-					}
-				},
-				{
-					"filename": "effects/shield3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 144,
-						"h": 137
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 144,
-						"h": 137
-					},
-					"frame": {
-						"x": 191,
-						"y": 1299,
-						"w": 144,
-						"h": 137
-					}
-				},
-				{
-					"filename": "effects/shield2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 143,
-						"h": 119
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 143,
-						"h": 119
-					},
-					"frame": {
-						"x": 191,
-						"y": 1438,
-						"w": 143,
-						"h": 119
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_005",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 84,
-						"h": 136
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 84,
-						"h": 136
-					},
-					"frame": {
-						"x": 1,
-						"y": 1483,
-						"w": 84,
-						"h": 136
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_009",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 82,
-						"h": 114
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 82,
-						"h": 114
-					},
-					"frame": {
-						"x": 87,
-						"y": 1483,
-						"w": 82,
-						"h": 114
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_004",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 108,
-						"h": 126
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 108,
-						"h": 126
-					},
-					"frame": {
-						"x": 336,
-						"y": 1438,
-						"w": 108,
-						"h": 126
-					}
-				},
-				{
 					"filename": "enemies/spaceShips_006",
 					"rotated": false,
 					"trimmed": false,
@@ -654,115 +528,10 @@
 						"h": 94
 					},
 					"frame": {
-						"x": 337,
-						"y": 1299,
+						"x": 1,
+						"y": 1766,
 						"w": 148,
 						"h": 94
-					}
-				},
-				{
-					"filename": "effects/shield1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 133,
-						"h": 108
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 133,
-						"h": 108
-					},
-					"frame": {
-						"x": 171,
-						"y": 1559,
-						"w": 133,
-						"h": 108
-					}
-				},
-				{
-					"filename": "effects/fire19",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 41
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 41
-					},
-					"frame": {
-						"x": 171,
-						"y": 1483,
-						"w": 16,
-						"h": 41
-					}
-				},
-				{
-					"filename": "effects/fire01",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 171,
-						"y": 1526,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "enemies/spaceShips_001",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 80,
-						"h": 106
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 80,
-						"h": 106
-					},
-					"frame": {
-						"x": 87,
-						"y": 1599,
-						"w": 80,
-						"h": 106
-					}
-				},
-				{
-					"filename": "hero/level_3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 80,
-						"h": 106
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 80,
-						"h": 106
-					},
-					"frame": {
-						"x": 1,
-						"y": 1621,
-						"w": 80,
-						"h": 106
 					}
 				},
 				{
@@ -780,262 +549,52 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 306,
-						"y": 1566,
+						"x": 151,
+						"y": 1766,
 						"w": 120,
 						"h": 98
 					}
 				},
 				{
-					"filename": "enemies/spaceShips_002",
+					"filename": "asteroids/meteorBrown_big1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 74,
-						"h": 101
+						"w": 101,
+						"h": 84
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 74,
-						"h": 101
+						"w": 101,
+						"h": 84
 					},
 					"frame": {
-						"x": 428,
-						"y": 1566,
-						"w": 74,
-						"h": 101
+						"x": 273,
+						"y": 1766,
+						"w": 101,
+						"h": 84
 					}
 				},
 				{
-					"filename": "ui/white/fastForward",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 13,
-						"y": 19,
-						"w": 78,
-						"h": 66
-					},
-					"frame": {
-						"x": 306,
-						"y": 1666,
-						"w": 78,
-						"h": 66
-					}
-				},
-				{
-					"filename": "ui/white/information",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 33,
-						"y": 17,
-						"w": 38,
-						"h": 70
-					},
-					"frame": {
-						"x": 386,
-						"y": 1666,
-						"w": 38,
-						"h": 70
-					}
-				},
-				{
-					"filename": "ui/white/barsHorizontal",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 17,
-						"y": 15,
-						"w": 74,
-						"h": 66
-					},
-					"frame": {
-						"x": 426,
-						"y": 1669,
-						"w": 74,
-						"h": 66
-					}
-				},
-				{
-					"filename": "effects/fire09",
+					"filename": "asteroids/meteorBrown_big4",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 16,
-						"h": 40
+						"w": 98,
+						"h": 96
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 16,
-						"h": 40
+						"w": 98,
+						"h": 96
 					},
 					"frame": {
-						"x": 502,
-						"y": 1669,
-						"w": 16,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_011",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 26
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 26
-					},
-					"frame": {
-						"x": 502,
-						"y": 1711,
-						"w": 26,
-						"h": 26
-					}
-				},
-				{
-					"filename": "ui/black",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 10,
-						"h": 10
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 10,
-						"h": 10
-					},
-					"frame": {
-						"x": 426,
-						"y": 1737,
-						"w": 10,
-						"h": 10
-					}
-				},
-				{
-					"filename": "ui/menu",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 70,
-						"h": 68
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 70,
-						"h": 68
-					},
-					"frame": {
-						"x": 169,
-						"y": 1669,
-						"w": 70,
-						"h": 68
-					}
-				},
-				{
-					"filename": "ui/white/arrowDown",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 15,
-						"w": 58,
-						"h": 70
-					},
-					"frame": {
-						"x": 241,
-						"y": 1669,
-						"w": 58,
-						"h": 70
-					}
-				},
-				{
-					"filename": "bullets/spaceMissiles_001",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 69,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 69,
-						"h": 40
-					},
-					"frame": {
-						"x": 83,
-						"y": 1707,
-						"w": 69,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_004",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 13,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 13,
-						"h": 32
-					},
-					"frame": {
-						"x": 154,
-						"y": 1707,
-						"w": 13,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/fire00",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 40,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 40,
-						"h": 16
-					},
-					"frame": {
-						"x": 1,
-						"y": 1729,
-						"w": 40,
-						"h": 16
+						"x": 376,
+						"y": 1766,
+						"w": 98,
+						"h": 96
 					}
 				},
 				{
@@ -1053,8 +612,8 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 43,
-						"y": 1729,
+						"x": 273,
+						"y": 1852,
 						"w": 37,
 						"h": 13
 					}
@@ -1074,224 +633,119 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 301,
-						"y": 1734,
+						"x": 312,
+						"y": 1852,
 						"w": 37,
 						"h": 13
 					}
 				},
 				{
-					"filename": "hero/level_1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 74,
-						"h": 101
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 74,
-						"h": 101
-					},
-					"frame": {
-						"x": 446,
-						"y": 1395,
-						"w": 74,
-						"h": 101
-					}
-				},
-				{
-					"filename": "ui/white/arrowLeft",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 15,
-						"y": 21,
-						"w": 70,
-						"h": 58
-					},
-					"frame": {
-						"x": 446,
-						"y": 1498,
-						"w": 70,
-						"h": 58
-					}
-				},
-				{
-					"filename": "bullets/spaceMissiles_002",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 69,
-						"h": 40
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 69,
-						"h": 40
-					},
-					"frame": {
-						"x": 337,
-						"y": 1395,
-						"w": 69,
-						"h": 40
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_014",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 35,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 35,
-						"h": 36
-					},
-					"frame": {
-						"x": 408,
-						"y": 1395,
-						"w": 35,
-						"h": 36
-					}
-				},
-				{
-					"filename": "effects/fire10",
+					"filename": "asteroids/meteorBrown_tiny2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
 						"w": 16,
-						"h": 40
+						"h": 15
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
 						"w": 16,
-						"h": 40
+						"h": 15
 					},
 					"frame": {
-						"x": 487,
+						"x": 351,
+						"y": 1852,
+						"w": 16,
+						"h": 15
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_005",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 84,
+						"h": 136
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 84,
+						"h": 136
+					},
+					"frame": {
+						"x": 437,
 						"y": 1299,
-						"w": 16,
-						"h": 40
+						"w": 84,
+						"h": 136
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_013",
+					"filename": "enemies/spaceShips_009",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 37,
-						"h": 36
+						"w": 82,
+						"h": 114
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 37,
-						"h": 36
+						"w": 82,
+						"h": 114
 					},
 					"frame": {
-						"x": 487,
-						"y": 1341,
-						"w": 37,
-						"h": 36
+						"x": 437,
+						"y": 1437,
+						"w": 82,
+						"h": 114
 					}
 				},
 				{
-					"filename": "effects/fire03",
+					"filename": "enemies/spaceShips_001",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 34
+						"w": 80,
+						"h": 106
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 34
+						"w": 80,
+						"h": 106
 					},
 					"frame": {
-						"x": 505,
-						"y": 1299,
-						"w": 14,
-						"h": 34
+						"x": 437,
+						"y": 1553,
+						"w": 80,
+						"h": 106
 					}
 				},
 				{
-					"filename": "effects/fire13",
+					"filename": "enemies/spaceShips_008",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 34
+						"w": 82,
+						"h": 100
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 34
+						"w": 82,
+						"h": 100
 					},
 					"frame": {
-						"x": 504,
-						"y": 1558,
-						"w": 14,
-						"h": 34
+						"x": 437,
+						"y": 1661,
+						"w": 82,
+						"h": 100
 					}
 				},
 				{
-					"filename": "effects/fire02",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 32
-					},
-					"frame": {
-						"x": 504,
-						"y": 1594,
-						"w": 14,
-						"h": 32
-					}
-				},
-				{
-					"filename": "effects/fire12",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 32
-					},
-					"frame": {
-						"x": 504,
-						"y": 1628,
-						"w": 14,
-						"h": 32
-					}
-				},
-				{
-					"filename": "ui/white/audioOff",
+					"filename": "ui/white/information",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -1299,163 +753,142 @@
 						"h": 100
 					},
 					"spriteSourceSize": {
-						"x": 17,
-						"y": 19,
-						"w": 42,
-						"h": 67
+						"x": 33,
+						"y": 17,
+						"w": 38,
+						"h": 70
 					},
 					"frame": {
-						"x": 966,
-						"y": 1278,
-						"w": 42,
-						"h": 67
+						"x": 476,
+						"y": 1763,
+						"w": 38,
+						"h": 70
 					}
 				},
 				{
-					"filename": "ui/white/question",
+					"filename": "ui/black",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 516,
+						"y": 1763,
+						"w": 10,
+						"h": 10
+					}
+				},
+				{
+					"filename": "pers/robot_wide",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 100,
-						"h": 100
+						"w": 192,
+						"h": 256
 					},
 					"spriteSourceSize": {
-						"x": 29,
-						"y": 21,
-						"w": 42,
-						"h": 66
+						"x": 1,
+						"y": 74,
+						"w": 188,
+						"h": 182
 					},
 					"frame": {
-						"x": 966,
-						"y": 1347,
-						"w": 42,
-						"h": 66
+						"x": 1503,
+						"y": 1180,
+						"w": 188,
+						"h": 182
 					}
 				},
 				{
-					"filename": "ui/board/hourglass",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 10,
-						"y": 4,
-						"w": 44,
-						"h": 56
-					},
-					"frame": {
-						"x": 966,
-						"y": 1415,
-						"w": 44,
-						"h": 56
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_015",
+					"filename": "effects/shield3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 44,
-						"h": 50
+						"w": 144,
+						"h": 137
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 44,
-						"h": 50
+						"w": 144,
+						"h": 137
 					},
 					"frame": {
-						"x": 966,
-						"y": 1473,
-						"w": 44,
-						"h": 50
+						"x": 1503,
+						"y": 1364,
+						"w": 144,
+						"h": 137
 					}
 				},
 				{
-					"filename": "ui/space_inlay",
+					"filename": "effects/shield2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 44,
-						"h": 44
+						"w": 143,
+						"h": 119
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 44,
-						"h": 44
+						"w": 143,
+						"h": 119
 					},
 					"frame": {
-						"x": 966,
-						"y": 1525,
-						"w": 44,
-						"h": 44
+						"x": 1503,
+						"y": 1503,
+						"w": 143,
+						"h": 119
 					}
 				},
 				{
-					"filename": "asteroids/meteorBrown_med1",
+					"filename": "enemies/spaceShips_004",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 43,
-						"h": 43
+						"w": 108,
+						"h": 126
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 43,
-						"h": 43
+						"w": 108,
+						"h": 126
 					},
 					"frame": {
-						"x": 966,
-						"y": 1571,
-						"w": 43,
-						"h": 43
+						"x": 1648,
+						"y": 1503,
+						"w": 108,
+						"h": 126
 					}
 				},
 				{
-					"filename": "asteroids/meteorBrown_med3",
+					"filename": "effects/shield1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 45,
-						"h": 40
+						"w": 133,
+						"h": 108
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 45,
-						"h": 40
+						"w": 133,
+						"h": 108
 					},
 					"frame": {
-						"x": 966,
-						"y": 1616,
-						"w": 45,
-						"h": 40
-					}
-				},
-				{
-					"filename": "powerup",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 33
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 33
-					},
-					"frame": {
-						"x": 966,
-						"y": 1658,
-						"w": 34,
-						"h": 33
+						"x": 1503,
+						"y": 1624,
+						"w": 133,
+						"h": 108
 					}
 				},
 				{
@@ -1473,8 +906,8 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1908,
-						"y": 654,
+						"x": 1649,
+						"y": 1364,
 						"w": 94,
 						"h": 100
 					}
@@ -1494,31 +927,115 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1908,
-						"y": 756,
+						"x": 1693,
+						"y": 1180,
 						"w": 94,
 						"h": 100
 					}
 				},
 				{
-					"filename": "enemies/spaceShips_008",
+					"filename": "hero/level_3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 82,
-						"h": 100
+						"w": 80,
+						"h": 106
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 82,
-						"h": 100
+						"w": 80,
+						"h": 106
 					},
 					"frame": {
-						"x": 1908,
-						"y": 858,
-						"w": 82,
+						"x": 1745,
+						"y": 1282,
+						"w": 80,
+						"h": 106
+					}
+				},
+				{
+					"filename": "ui/white/audioOff",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
 						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 19,
+						"w": 42,
+						"h": 67
+					},
+					"frame": {
+						"x": 1693,
+						"y": 1282,
+						"w": 42,
+						"h": 67
+					}
+				},
+				{
+					"filename": "asteroids/meteorBrown_big3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 89,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 89,
+						"h": 82
+					},
+					"frame": {
+						"x": 1789,
+						"y": 1180,
+						"w": 89,
+						"h": 82
+					}
+				},
+				{
+					"filename": "effects/fire00",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 16
+					},
+					"frame": {
+						"x": 1789,
+						"y": 1264,
+						"w": 40,
+						"h": 16
+					}
+				},
+				{
+					"filename": "enemies/enemyBlue1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 84,
+						"h": 93
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 84,
+						"h": 93
+					},
+					"frame": {
+						"x": 1745,
+						"y": 1390,
+						"w": 84,
+						"h": 93
 					}
 				},
 				{
@@ -1536,31 +1053,31 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1908,
-						"y": 960,
+						"x": 1827,
+						"y": 1282,
 						"w": 82,
 						"h": 100
 					}
 				},
 				{
-					"filename": "asteroids/meteorBrown_big1",
+					"filename": "ui/white/question",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 101,
-						"h": 84
+						"w": 100,
+						"h": 100
 					},
 					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 101,
-						"h": 84
+						"x": 29,
+						"y": 21,
+						"w": 42,
+						"h": 66
 					},
 					"frame": {
-						"x": 1908,
-						"y": 1062,
-						"w": 101,
-						"h": 84
+						"x": 1880,
+						"y": 1180,
+						"w": 42,
+						"h": 66
 					}
 				},
 				{
@@ -1578,10 +1095,178 @@
 						"h": 16
 					},
 					"frame": {
-						"x": 1908,
-						"y": 1148,
+						"x": 1880,
+						"y": 1248,
 						"w": 40,
 						"h": 16
+					}
+				},
+				{
+					"filename": "powerup",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 33
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 33
+					},
+					"frame": {
+						"x": 1649,
+						"y": 1466,
+						"w": 34,
+						"h": 33
+					}
+				},
+				{
+					"filename": "ui/powerupBlue",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 33
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 33
+					},
+					"frame": {
+						"x": 1685,
+						"y": 1466,
+						"w": 34,
+						"h": 33
+					}
+				},
+				{
+					"filename": "effects/fire03",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 34
+					},
+					"frame": {
+						"x": 1721,
+						"y": 1466,
+						"w": 14,
+						"h": 34
+					}
+				},
+				{
+					"filename": "ui/white/fastForward",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 19,
+						"w": 78,
+						"h": 66
+					},
+					"frame": {
+						"x": 1638,
+						"y": 1631,
+						"w": 78,
+						"h": 66
+					}
+				},
+				{
+					"filename": "enemies/spaceShips_002",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 74,
+						"h": 101
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 74,
+						"h": 101
+					},
+					"frame": {
+						"x": 1718,
+						"y": 1631,
+						"w": 74,
+						"h": 101
+					}
+				},
+				{
+					"filename": "hero/level_1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 74,
+						"h": 101
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 74,
+						"h": 101
+					},
+					"frame": {
+						"x": 1638,
+						"y": 1699,
+						"w": 74,
+						"h": 101
+					}
+				},
+				{
+					"filename": "ui/white/barsHorizontal",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 15,
+						"w": 74,
+						"h": 66
+					},
+					"frame": {
+						"x": 1758,
+						"y": 1485,
+						"w": 74,
+						"h": 66
+					}
+				},
+				{
+					"filename": "ui/menu",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 68
+					},
+					"frame": {
+						"x": 1831,
+						"y": 1384,
+						"w": 70,
+						"h": 68
 					}
 				},
 				{
@@ -1599,94 +1284,10 @@
 						"h": 28
 					},
 					"frame": {
-						"x": 1950,
-						"y": 1148,
+						"x": 1831,
+						"y": 1454,
 						"w": 30,
 						"h": 28
-					}
-				},
-				{
-					"filename": "ui/Colored/blue",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 1992,
-						"y": 858,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "ui/Colored/blue_pressed",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 1992,
-						"y": 908,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "ui/Colored/green",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 1992,
-						"y": 958,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "ui/Colored/green_pressed",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 1992,
-						"y": 1008,
-						"w": 48,
-						"h": 48
 					}
 				},
 				{
@@ -1704,8 +1305,8 @@
 						"h": 68
 					},
 					"frame": {
-						"x": 1503,
-						"y": 1676,
+						"x": 1758,
+						"y": 1553,
 						"w": 70,
 						"h": 68
 					}
@@ -1725,8 +1326,8 @@
 						"h": 68
 					},
 					"frame": {
-						"x": 1575,
-						"y": 1676,
+						"x": 1714,
+						"y": 1734,
 						"w": 70,
 						"h": 68
 					}
@@ -1746,10 +1347,31 @@
 						"h": 68
 					},
 					"frame": {
-						"x": 1647,
-						"y": 1676,
+						"x": 1786,
+						"y": 1734,
 						"w": 70,
 						"h": 68
+					}
+				},
+				{
+					"filename": "ui/white/arrowLeft",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 21,
+						"w": 70,
+						"h": 58
+					},
+					"frame": {
+						"x": 1794,
+						"y": 1623,
+						"w": 70,
+						"h": 58
 					}
 				},
 				{
@@ -1767,14 +1389,14 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 1719,
-						"y": 1676,
+						"x": 1830,
+						"y": 1553,
 						"w": 70,
 						"h": 58
 					}
 				},
 				{
-					"filename": "ui/white/shoppingCart",
+					"filename": "ui/white/arrowDown",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -1782,58 +1404,163 @@
 						"h": 100
 					},
 					"spriteSourceSize": {
-						"x": 17,
-						"y": 25,
-						"w": 68,
-						"h": 62
+						"x": 21,
+						"y": 15,
+						"w": 58,
+						"h": 70
 					},
 					"frame": {
-						"x": 1791,
-						"y": 1676,
-						"w": 68,
-						"h": 62
+						"x": 1863,
+						"y": 1454,
+						"w": 58,
+						"h": 70
 					}
 				},
 				{
-					"filename": "ui/white/audioOn",
+					"filename": "effects/fire19",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 100,
-						"h": 100
+						"w": 16,
+						"h": 41
 					},
 					"spriteSourceSize": {
-						"x": 17,
-						"y": 19,
-						"w": 66,
-						"h": 67
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 41
 					},
 					"frame": {
-						"x": 1861,
-						"y": 1676,
-						"w": 66,
-						"h": 67
+						"x": 1834,
+						"y": 1484,
+						"w": 16,
+						"h": 41
 					}
 				},
 				{
-					"filename": "ui/white/larger",
+					"filename": "effects/fire09",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 100,
-						"h": 100
+						"w": 16,
+						"h": 40
 					},
 					"spriteSourceSize": {
-						"x": 19,
-						"y": 19,
-						"w": 66,
-						"h": 67
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
 					},
 					"frame": {
-						"x": 1929,
-						"y": 1676,
-						"w": 66,
-						"h": 67
+						"x": 1903,
+						"y": 1384,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_009",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 28,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 28,
+						"h": 24
+					},
+					"frame": {
+						"x": 1903,
+						"y": 1426,
+						"w": 28,
+						"h": 24
+					}
+				},
+				{
+					"filename": "effects/star1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 24
+					},
+					"frame": {
+						"x": 1852,
+						"y": 1526,
+						"w": 25,
+						"h": 24
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_001",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 23
+					},
+					"frame": {
+						"x": 1834,
+						"y": 1527,
+						"w": 14,
+						"h": 23
+					}
+				},
+				{
+					"filename": "effects/star2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 24
+					},
+					"frame": {
+						"x": 1879,
+						"y": 1526,
+						"w": 25,
+						"h": 24
+					}
+				},
+				{
+					"filename": "bullets/spaceMissiles_001",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 69,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 69,
+						"h": 40
+					},
+					"frame": {
+						"x": 1794,
+						"y": 1683,
+						"w": 69,
+						"h": 40
 					}
 				},
 				{
@@ -1851,31 +1578,241 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 1979,
-						"y": 1178,
+						"x": 1858,
+						"y": 1725,
 						"w": 58,
 						"h": 70
 					}
 				},
 				{
-					"filename": "asteroids/meteorBrown_small1",
+					"filename": "ui/white/audioOn",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 19,
+						"w": 66,
+						"h": 67
+					},
+					"frame": {
+						"x": 1858,
+						"y": 1797,
+						"w": 66,
+						"h": 67
+					}
+				},
+				{
+					"filename": "asteroids/meteorBrown_med3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 28,
-						"h": 28
+						"w": 45,
+						"h": 40
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 28,
-						"h": 28
+						"w": 45,
+						"h": 40
 					},
 					"frame": {
-						"x": 1982,
-						"y": 1148,
-						"w": 28,
-						"h": 28
+						"x": 1865,
+						"y": 1683,
+						"w": 45,
+						"h": 40
+					}
+				},
+				{
+					"filename": "ui/white/larger",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 19,
+						"w": 66,
+						"h": 67
+					},
+					"frame": {
+						"x": 1866,
+						"y": 1613,
+						"w": 66,
+						"h": 67
+					}
+				},
+				{
+					"filename": "effects/fire10",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 40
+					},
+					"frame": {
+						"x": 1912,
+						"y": 1682,
+						"w": 16,
+						"h": 40
+					}
+				},
+				{
+					"filename": "effects/fire13",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 34
+					},
+					"frame": {
+						"x": 1902,
+						"y": 1552,
+						"w": 14,
+						"h": 34
+					}
+				},
+				{
+					"filename": "effects/star3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 1906,
+						"y": 1526,
+						"w": 24,
+						"h": 24
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_008",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 21,
+						"h": 21
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 21,
+						"h": 21
+					},
+					"frame": {
+						"x": 1902,
+						"y": 1588,
+						"w": 21,
+						"h": 21
+					}
+				},
+				{
+					"filename": "effects/fire02",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 32
+					},
+					"frame": {
+						"x": 1918,
+						"y": 1552,
+						"w": 14,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/fire12",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 32
+					},
+					"frame": {
+						"x": 1918,
+						"y": 1724,
+						"w": 14,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_004",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 13,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 13,
+						"h": 32
+					},
+					"frame": {
+						"x": 1918,
+						"y": 1758,
+						"w": 13,
+						"h": 32
+					}
+				},
+				{
+					"filename": "effects/fire01",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 1911,
+						"y": 1266,
+						"w": 14,
+						"h": 31
 					}
 				},
 				{
@@ -1893,8 +1830,8 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 2011,
-						"y": 1058,
+						"x": 1911,
+						"y": 1299,
 						"w": 14,
 						"h": 31
 					}
@@ -1914,98 +1851,35 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 2011,
-						"y": 1091,
+						"x": 1911,
+						"y": 1332,
 						"w": 14,
 						"h": 31
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_008",
+					"filename": "bullets/spaceMissiles_002",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 21,
-						"h": 21
+						"w": 69,
+						"h": 40
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 21,
-						"h": 21
+						"w": 69,
+						"h": 40
 					},
 					"frame": {
-						"x": 2011,
-						"y": 1124,
-						"w": 21,
-						"h": 21
+						"x": 1006,
+						"y": 1677,
+						"w": 69,
+						"h": 40
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_009",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 28,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 28,
-						"h": 24
-					},
-					"frame": {
-						"x": 2012,
-						"y": 1147,
-						"w": 28,
-						"h": 24
-					}
-				},
-				{
-					"filename": "effects/fire06",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 2027,
-						"y": 1058,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/fire07",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 2027,
-						"y": 1091,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "ui/white/pause",
+					"filename": "ui/white/shoppingCart",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -2013,205 +1887,16 @@
 						"h": 100
 					},
 					"spriteSourceSize": {
-						"x": 21,
-						"y": 15,
-						"w": 58,
-						"h": 67
+						"x": 17,
+						"y": 25,
+						"w": 68,
+						"h": 62
 					},
 					"frame": {
-						"x": 1979,
-						"y": 1250,
-						"w": 58,
-						"h": 67
-					}
-				},
-				{
-					"filename": "ui/white/musicOff",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 21,
-						"w": 62,
-						"h": 64
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1319,
-						"w": 62,
-						"h": 64
-					}
-				},
-				{
-					"filename": "ui/white/shoppingBasket",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 21,
-						"w": 62,
-						"h": 64
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1385,
-						"w": 62,
-						"h": 64
-					}
-				},
-				{
-					"filename": "ui/white/musicOn",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 21,
-						"w": 57,
-						"h": 64
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1451,
-						"w": 57,
-						"h": 64
-					}
-				},
-				{
-					"filename": "ui/board/shield",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 2,
-						"w": 56,
-						"h": 60
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1517,
-						"w": 56,
-						"h": 60
-					}
-				},
-				{
-					"filename": "ui/board/arrow_diagonal_cross",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 6,
-						"y": 6,
-						"w": 52,
-						"h": 52
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1579,
-						"w": 52,
-						"h": 52
-					}
-				},
-				{
-					"filename": "ui/powerupBlue",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 33
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 33
-					},
-					"frame": {
-						"x": 1979,
-						"y": 1633,
-						"w": 34,
-						"h": 33
-					}
-				},
-				{
-					"filename": "ui/powerupGreen",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 33
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 33
-					},
-					"frame": {
-						"x": 1997,
-						"y": 1668,
-						"w": 34,
-						"h": 33
-					}
-				},
-				{
-					"filename": "effects/star1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 25,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 25,
-						"h": 24
-					},
-					"frame": {
-						"x": 2015,
-						"y": 1633,
-						"w": 25,
-						"h": 24
-					}
-				},
-				{
-					"filename": "ui/powerupYellow",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 33
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 33
-					},
-					"frame": {
-						"x": 1997,
-						"y": 1703,
-						"w": 34,
-						"h": 33
+						"x": 1077,
+						"y": 1677,
+						"w": 68,
+						"h": 62
 					}
 				},
 				{
@@ -2229,52 +1914,10 @@
 						"h": 67
 					},
 					"frame": {
-						"x": 1002,
-						"y": 1677,
+						"x": 1006,
+						"y": 1719,
 						"w": 66,
 						"h": 67
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_012",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 966,
-						"y": 1693,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "asteroids/meteorBrown_tiny1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 18,
-						"h": 18
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 18,
-						"h": 18
-					},
-					"frame": {
-						"x": 966,
-						"y": 1727,
-						"w": 18,
-						"h": 18
 					}
 				},
 				{
@@ -2292,10 +1935,31 @@
 						"h": 66
 					},
 					"frame": {
-						"x": 1070,
+						"x": 1147,
 						"y": 1677,
 						"w": 66,
 						"h": 66
+					}
+				},
+				{
+					"filename": "ui/white/pause",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 15,
+						"w": 58,
+						"h": 67
+					},
+					"frame": {
+						"x": 1074,
+						"y": 1741,
+						"w": 58,
+						"h": 67
 					}
 				},
 				{
@@ -2313,7 +1977,7 @@
 						"h": 66
 					},
 					"frame": {
-						"x": 1138,
+						"x": 1215,
 						"y": 1677,
 						"w": 66,
 						"h": 66
@@ -2334,10 +1998,52 @@
 						"h": 66
 					},
 					"frame": {
-						"x": 1206,
+						"x": 1283,
 						"y": 1677,
 						"w": 66,
 						"h": 66
+					}
+				},
+				{
+					"filename": "ui/white/musicOff",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 62,
+						"h": 64
+					},
+					"frame": {
+						"x": 1351,
+						"y": 1677,
+						"w": 62,
+						"h": 64
+					}
+				},
+				{
+					"filename": "ui/white/shoppingBasket",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 62,
+						"h": 64
+					},
+					"frame": {
+						"x": 1415,
+						"y": 1677,
+						"w": 62,
+						"h": 64
 					}
 				},
 				{
@@ -2355,10 +2061,52 @@
 						"h": 62
 					},
 					"frame": {
-						"x": 1274,
-						"y": 1677,
+						"x": 1479,
+						"y": 1734,
 						"w": 66,
 						"h": 62
+					}
+				},
+				{
+					"filename": "effects/fire06",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 1479,
+						"y": 1677,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "asteroids/meteorBrown_tiny1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 18,
+						"h": 18
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 18,
+						"h": 18
+					},
+					"frame": {
+						"x": 1479,
+						"y": 1710,
+						"w": 18,
+						"h": 18
 					}
 				},
 				{
@@ -2376,10 +2124,52 @@
 						"h": 59
 					},
 					"frame": {
-						"x": 1342,
-						"y": 1677,
+						"x": 1351,
+						"y": 1743,
 						"w": 66,
 						"h": 59
+					}
+				},
+				{
+					"filename": "ui/white/musicOn",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 57,
+						"h": 64
+					},
+					"frame": {
+						"x": 1419,
+						"y": 1743,
+						"w": 57,
+						"h": 64
+					}
+				},
+				{
+					"filename": "ui/board/shield",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 2,
+						"w": 56,
+						"h": 60
+					},
+					"frame": {
+						"x": 1547,
+						"y": 1734,
+						"w": 56,
+						"h": 60
 					}
 				},
 				{
@@ -2397,10 +2187,73 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 1410,
-						"y": 1677,
+						"x": 1547,
+						"y": 1796,
 						"w": 64,
 						"h": 58
+					}
+				},
+				{
+					"filename": "ui/board/arrow_diagonal_cross",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 52,
+						"h": 52
+					},
+					"frame": {
+						"x": 1478,
+						"y": 1798,
+						"w": 52,
+						"h": 52
+					}
+				},
+				{
+					"filename": "effects/fire07",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 1605,
+						"y": 1734,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_011",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 26
+					},
+					"frame": {
+						"x": 1605,
+						"y": 1767,
+						"w": 26,
+						"h": 26
 					}
 				},
 				{
@@ -2418,10 +2271,31 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 1476,
-						"y": 1677,
+						"x": 1621,
+						"y": 1734,
 						"w": 14,
 						"h": 31
+					}
+				},
+				{
+					"filename": "ui/white/down",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 29,
+						"w": 66,
+						"h": 42
+					},
+					"frame": {
+						"x": 1613,
+						"y": 1802,
+						"w": 66,
+						"h": 42
 					}
 				},
 				{
@@ -2439,115 +2313,10 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 1476,
-						"y": 1710,
+						"x": 1681,
+						"y": 1802,
 						"w": 14,
 						"h": 31
-					}
-				},
-				{
-					"filename": "asteroids/meteorBrown_big4",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 98,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 98,
-						"h": 96
-					},
-					"frame": {
-						"x": 1925,
-						"y": 1,
-						"w": 98,
-						"h": 96
-					}
-				},
-				{
-					"filename": "asteroids/meteorBrown_big3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 89,
-						"h": 82
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 89,
-						"h": 82
-					},
-					"frame": {
-						"x": 1925,
-						"y": 99,
-						"w": 89,
-						"h": 82
-					}
-				},
-				{
-					"filename": "effects/spaceEffects_016",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 50,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 50,
-						"h": 52
-					},
-					"frame": {
-						"x": 1925,
-						"y": 183,
-						"w": 50,
-						"h": 52
-					}
-				},
-				{
-					"filename": "ui/board/arrow_counterclockwise",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 7,
-						"w": 58,
-						"h": 50
-					},
-					"frame": {
-						"x": 1925,
-						"y": 237,
-						"w": 58,
-						"h": 50
-					}
-				},
-				{
-					"filename": "ui/board/structure_house",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 8,
-						"w": 56,
-						"h": 48
-					},
-					"frame": {
-						"x": 1977,
-						"y": 183,
-						"w": 56,
-						"h": 48
 					}
 				},
 				{
@@ -2565,71 +2334,8 @@
 						"h": 31
 					},
 					"frame": {
-						"x": 2016,
-						"y": 99,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "effects/fire16",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 2016,
-						"y": 132,
-						"w": 14,
-						"h": 31
-					}
-				},
-				{
-					"filename": "asteroids/meteorBrown_tiny2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 15
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 15
-					},
-					"frame": {
-						"x": 2016,
-						"y": 165,
-						"w": 16,
-						"h": 15
-					}
-				},
-				{
-					"filename": "effects/fire17",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 14,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 14,
-						"h": 31
-					},
-					"frame": {
-						"x": 2025,
-						"y": 1,
+						"x": 1697,
+						"y": 1802,
 						"w": 14,
 						"h": 31
 					}
@@ -2649,8 +2355,8 @@
 						"h": 30
 					},
 					"frame": {
-						"x": 2025,
-						"y": 34,
+						"x": 1532,
+						"y": 1798,
 						"w": 13,
 						"h": 30
 					}
@@ -2670,10 +2376,262 @@
 						"h": 30
 					},
 					"frame": {
-						"x": 2025,
-						"y": 66,
+						"x": 1532,
+						"y": 1830,
 						"w": 13,
 						"h": 30
+					}
+				},
+				{
+					"filename": "ui/board/arrow_counterclockwise",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 7,
+						"w": 58,
+						"h": 50
+					},
+					"frame": {
+						"x": 1713,
+						"y": 1804,
+						"w": 58,
+						"h": 50
+					}
+				},
+				{
+					"filename": "asteroids/meteorBrown_small1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 28,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 28,
+						"h": 28
+					},
+					"frame": {
+						"x": 1681,
+						"y": 1835,
+						"w": 28,
+						"h": 28
+					}
+				},
+				{
+					"filename": "ui/board/structure_house",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 8,
+						"w": 56,
+						"h": 48
+					},
+					"frame": {
+						"x": 1773,
+						"y": 1804,
+						"w": 56,
+						"h": 48
+					}
+				},
+				{
+					"filename": "effects/fire16",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 1831,
+						"y": 1804,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_003",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 25
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 25
+					},
+					"frame": {
+						"x": 1831,
+						"y": 1837,
+						"w": 14,
+						"h": 25
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_016",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 50,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 1134,
+						"y": 1745,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "ui/Colored/blue",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 1186,
+						"y": 1745,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "ui/board/hourglass",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 4,
+						"w": 44,
+						"h": 56
+					},
+					"frame": {
+						"x": 1236,
+						"y": 1745,
+						"w": 44,
+						"h": 56
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_015",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 50
+					},
+					"frame": {
+						"x": 1186,
+						"y": 1795,
+						"w": 44,
+						"h": 50
+					}
+				},
+				{
+					"filename": "ui/Colored/blue_pressed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 1134,
+						"y": 1799,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "ui/Colored/green",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 1232,
+						"y": 1803,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "ui/Colored/green_pressed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 1282,
+						"y": 1745,
+						"w": 48,
+						"h": 48
 					}
 				},
 				{
@@ -2691,8 +2649,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 289,
+						"x": 1282,
+						"y": 1795,
 						"w": 48,
 						"h": 48
 					}
@@ -2712,10 +2670,73 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 339,
+						"x": 1332,
+						"y": 1804,
 						"w": 48,
 						"h": 48
+					}
+				},
+				{
+					"filename": "effects/fire17",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 31
+					},
+					"frame": {
+						"x": 1332,
+						"y": 1745,
+						"w": 14,
+						"h": 31
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_017",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 14,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 14,
+						"h": 23
+					},
+					"frame": {
+						"x": 1332,
+						"y": 1778,
+						"w": 14,
+						"h": 23
+					}
+				},
+				{
+					"filename": "effects/spaceEffects_014",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 35,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 35,
+						"h": 36
+					},
+					"frame": {
+						"x": 1382,
+						"y": 1804,
+						"w": 35,
+						"h": 36
 					}
 				},
 				{
@@ -2733,8 +2754,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 389,
+						"x": 1419,
+						"y": 1809,
 						"w": 48,
 						"h": 48
 					}
@@ -2754,8 +2775,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 439,
+						"x": 528,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2775,8 +2796,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 489,
+						"x": 578,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2796,31 +2817,10 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1925,
-						"y": 539,
+						"x": 628,
+						"y": 1774,
 						"w": 48,
 						"h": 48
-					}
-				},
-				{
-					"filename": "ui/white/down",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 100,
-						"h": 100
-					},
-					"spriteSourceSize": {
-						"x": 19,
-						"y": 29,
-						"w": 66,
-						"h": 42
-					},
-					"frame": {
-						"x": 1925,
-						"y": 589,
-						"w": 66,
-						"h": 42
 					}
 				},
 				{
@@ -2838,8 +2838,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 289,
+						"x": 678,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2859,8 +2859,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1985,
-						"y": 233,
+						"x": 728,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2880,8 +2880,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 339,
+						"x": 778,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2901,8 +2901,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 389,
+						"x": 828,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2922,8 +2922,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 439,
+						"x": 878,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2943,8 +2943,8 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 489,
+						"x": 928,
+						"y": 1774,
 						"w": 48,
 						"h": 48
 					}
@@ -2964,10 +2964,31 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1975,
-						"y": 539,
+						"x": 978,
+						"y": 1788,
 						"w": 48,
 						"h": 48
+					}
+				},
+				{
+					"filename": "ui/space_inlay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 44
+					},
+					"frame": {
+						"x": 1028,
+						"y": 1788,
+						"w": 44,
+						"h": 44
 					}
 				},
 				{
@@ -2985,115 +3006,115 @@
 						"h": 48
 					},
 					"frame": {
-						"x": 1993,
-						"y": 589,
+						"x": 1074,
+						"y": 1810,
 						"w": 48,
 						"h": 48
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_003",
+					"filename": "ui/powerupGreen",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 25
+						"w": 34,
+						"h": 33
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 25
+						"w": 34,
+						"h": 33
 					},
 					"frame": {
-						"x": 2004,
-						"y": 639,
-						"w": 14,
-						"h": 25
+						"x": 1028,
+						"y": 1834,
+						"w": 34,
+						"h": 33
 					}
 				},
 				{
-					"filename": "effects/star2",
+					"filename": "asteroids/meteorBrown_med1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 25,
-						"h": 24
+						"w": 43,
+						"h": 43
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 25,
-						"h": 24
+						"w": 43,
+						"h": 43
 					},
 					"frame": {
-						"x": 2004,
-						"y": 666,
-						"w": 25,
-						"h": 24
+						"x": 516,
+						"y": 1824,
+						"w": 43,
+						"h": 43
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_001",
+					"filename": "effects/spaceEffects_012",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 23
+						"w": 32,
+						"h": 32
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 23
+						"w": 32,
+						"h": 32
 					},
 					"frame": {
-						"x": 2020,
-						"y": 639,
-						"w": 14,
-						"h": 23
+						"x": 476,
+						"y": 1835,
+						"w": 32,
+						"h": 32
 					}
 				},
 				{
-					"filename": "effects/star3",
+					"filename": "effects/spaceEffects_013",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 24,
-						"h": 24
+						"w": 37,
+						"h": 36
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 24,
-						"h": 24
+						"w": 37,
+						"h": 36
 					},
 					"frame": {
-						"x": 2004,
-						"y": 692,
-						"w": 24,
-						"h": 24
+						"x": 561,
+						"y": 1824,
+						"w": 37,
+						"h": 36
 					}
 				},
 				{
-					"filename": "effects/spaceEffects_017",
+					"filename": "ui/powerupYellow",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 14,
-						"h": 23
+						"w": 34,
+						"h": 33
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 14,
-						"h": 23
+						"w": 34,
+						"h": 33
 					},
 					"frame": {
-						"x": 2004,
-						"y": 718,
-						"w": 14,
-						"h": 23
+						"x": 600,
+						"y": 1824,
+						"w": 34,
+						"h": 33
 					}
 				}
 			]
@@ -3102,6 +3123,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:485aee2c735d0ed08020e9d586239016:950af215e7a179ab435e221ceaa2b5e7:fc2835210f98bae8e8c1b7f0a84c9321$"
+		"smartupdate": "$TexturePacker:SmartUpdate:9964297bc6fbeb4123b388ecb182f87c:015318b2dcfcbbece0ee5cce57998d0a:fc2835210f98bae8e8c1b7f0a84c9321$"
 	}
 }

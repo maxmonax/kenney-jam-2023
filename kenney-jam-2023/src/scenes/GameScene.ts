@@ -5,9 +5,11 @@ import { Params } from "../data/Params";
 import { DebugGui } from "../debug/DebugGui";
 import { GameEvents } from "../events/GameEvents";
 import { AsteroidSpawner } from "../mng/AsteroidSpawner";
+import { EnemySpawner } from "../mng/EnemySpawner";
 import { ObjectMng } from "../mng/ObjectMng";
 import { Asteroid } from "../objects/Asteriod";
 import { Bullet } from "../objects/Bullet";
+import { EnemyShip } from "../objects/EnemyShip";
 import { Energy } from "../objects/Energy";
 import { GameObject } from "../objects/GameObject";
 import { Ship, ShipEvents } from "../objects/Ship";
@@ -35,16 +37,19 @@ export class GameScene extends Phaser.Scene {
     asteroids: Phaser.Physics.Arcade.Group;
     energy: Phaser.Physics.Arcade.Group;
     enemies: Phaser.Physics.Arcade.Group;
-    enemyBullets: Phaser.Physics.Arcade.Group;
+    // enemyBullets: Phaser.Physics.Arcade.Group;
+
     _shipEnergyOverlap;
     _bulletAsteroidsOverlap;
     _allyAsteroidsCollider;
+
     // objects
     private _objMng: ObjectMng;
     private _ship: Ship;
     private _station: Station;
     private _shipController: ShipController;
     private _asterSpawner: AsteroidSpawner;
+    private _enemySpawner: EnemySpawner;
     // effects
     private _asteroidHitEffectEmitter;
     private _asteroidDestroyEffectEmitter;
@@ -88,7 +93,7 @@ export class GameScene extends Phaser.Scene {
         this.asteroids = this.physics.add.group();
         this.energy = this.physics.add.group();
         this.enemies = this.physics.add.group();
-        this.enemyBullets = this.physics.add.group();
+        // this.enemyBullets = this.physics.add.group();
 
         this.generateAsteroid();
 
@@ -106,6 +111,7 @@ export class GameScene extends Phaser.Scene {
         this._shipController = new ShipController(this, this._ship);
 
         this._asterSpawner = new AsteroidSpawner(this, this._ship, this._dummySpaceObjects);
+        this._enemySpawner = new EnemySpawner(this, this._ship, this._dummyBgObjects);
 
         // init game data
         let gd = GameData.getInstance();
@@ -194,6 +200,23 @@ export class GameScene extends Phaser.Scene {
             if (asteroid.hp <= 0) this.destroyAsteroid(aAsteroidImage);
         });
 
+        this.physics.add.overlap(this._ship.image, this.bullets, (aShipImg: any, aBulletImage: any) => {
+            let bullet = aBulletImage.object as Bullet;
+            if (bullet.isEnemy) {
+                this._ship.hit(bullet.damage);
+                bullet.free();
+            }
+        });
+
+        this.physics.add.overlap(this.enemies, this.bullets, (aEnemyShipImg: any, aBulletImage: any) => {
+            let e = aEnemyShipImg.object as EnemyShip;
+            let bullet = aBulletImage.object as Bullet;
+            if (!bullet.isEnemy) {
+                e.hit(bullet.damage);
+                bullet.free();
+            }
+        });
+
         this._allyAsteroidsCollider = this.physics.add.collider(this._ship.image, this.asteroids, (aAllyImage: any, aAsteroidImage: any) => {
             if (aAllyImage.object instanceof Ship) {
                 let ship = aAllyImage.object as Ship;
@@ -269,6 +292,9 @@ export class GameScene extends Phaser.Scene {
             },
             damage200: () => {
                 this._ship.hit(200);
+            },
+            enemySpawn: () => {
+                this._enemySpawner.spawnEnemy(this._ship.image.x + 500, this._ship.image.y);
             }
         }
         let gui = DebugGui.getInstance().gui;
@@ -277,6 +303,7 @@ export class GameScene extends Phaser.Scene {
         gui.add(OBJ, 'addEnergy');
         gui.add(OBJ, 'damage50');
         gui.add(OBJ, 'damage200');
+        gui.add(OBJ, 'enemySpawn');
     }
 
     private generateAsteroid() {
@@ -321,7 +348,7 @@ export class GameScene extends Phaser.Scene {
         this.asteroids.destroy();
         this.energy.destroy();
         this.enemies.destroy();
-        this.enemyBullets.destroy();
+        // this.enemyBullets.destroy();
 
         // objects
         this._objMng.clear();
@@ -361,6 +388,7 @@ export class GameScene extends Phaser.Scene {
         // this._gui.update(dt);
 
         this._asterSpawner.update(dt);
+        this._enemySpawner.update(dt);
 
     }
 

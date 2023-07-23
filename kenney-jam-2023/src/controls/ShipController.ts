@@ -15,8 +15,11 @@ export class ShipController {
     private _timerFire = 0;
     
     private _keyW: Phaser.Input.Keyboard.Key;
+    private _keyUp: Phaser.Input.Keyboard.Key;
     private _keyA: Phaser.Input.Keyboard.Key;
+    private _keyLeft: Phaser.Input.Keyboard.Key;
     private _keyD: Phaser.Input.Keyboard.Key;
+    private _keyRight: Phaser.Input.Keyboard.Key;
     private _keySpace: Phaser.Input.Keyboard.Key;
 
     constructor(scene: GameScene, ship: Ship) {
@@ -26,6 +29,9 @@ export class ShipController {
         this._keyW = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this._keyA = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this._keyD = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        this._keyUp = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        this._keyLeft = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        this._keyRight = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         this._keySpace = this._scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
@@ -43,7 +49,8 @@ export class ShipController {
     }
 
     updateMoving(dt: number) {
-        if (this._keyW.isDown) {
+        let frwDown = this._keyUp.isDown || this._keyW.isDown;
+        if (frwDown) {
             this._scene.physics.velocityFromRotation(this._ship.image.rotation, ACCELERATION, this._ship.image.body.acceleration);
         }
         else {
@@ -51,7 +58,7 @@ export class ShipController {
             this._ship.image.body.acceleration.y = 0;
         }
 
-        this._ship.gas = this._keyW.isDown;
+        this._ship.gas = frwDown;
 
         let df = Config.GAME.DAMP_FACTOR;
         this._ship.image.body.velocity.x *= df;
@@ -59,8 +66,8 @@ export class ShipController {
     }
 
     updateTurning(dt: number) {
-        let turnToLeft = this._keyA.isDown;
-        let turnToRight = this._keyD.isDown;
+        let turnToLeft = this._keyA.isDown || this._keyLeft.isDown;
+        let turnToRight = this._keyD.isDown || this._keyRight.isDown;
         if (turnToLeft && turnToRight) turnToLeft = turnToRight = false;
         if (turnToLeft) this._ship.image.rotation -= ROTATION_SPEED * dt;
         if (turnToRight) this._ship.image.rotation += ROTATION_SPEED * dt;

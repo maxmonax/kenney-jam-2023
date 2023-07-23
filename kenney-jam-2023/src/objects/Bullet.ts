@@ -8,19 +8,21 @@ export class Bullet extends GameObject {
     bulletTexture: string;
     destroyTimer: Phaser.Time.TimerEvent;
     damage: number;
+    isEnemy = false;
 
-    constructor(scene: GameScene, x, y, damage, direction, velocity, bulletTexture) {
+    constructor(scene: GameScene, x, y, damage, direction, velocity, bulletTexture, isEnemy = false) {
         super();
         this.scene = scene;
         this.damage = damage;
         this.direction = direction;
         this.bulletTexture = bulletTexture;
+        this.isEnemy = isEnemy;
         this.createBody(x, y, velocity);
     }
 
     createBody(x, y, velocity) {
-        this.image = this.scene.bullets.create(x, y, 'game', this.bulletTexture)
-            .setDepth(105)
+        let group = this.scene.bullets;
+        this.image = group.create(x, y, 'game', this.bulletTexture)
             .setRotation(this.direction)// - Math.PI / 2)
             .setVelocityX(velocity * Math.cos(this.direction))
             .setVelocityY(velocity * Math.sin(this.direction));
