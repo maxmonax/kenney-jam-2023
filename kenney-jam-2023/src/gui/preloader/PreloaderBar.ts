@@ -1,4 +1,3 @@
-import { Config } from "../../data/Config";
 
 export class PreloaderBar extends Phaser.GameObjects.Container {
     private useSimple = false;

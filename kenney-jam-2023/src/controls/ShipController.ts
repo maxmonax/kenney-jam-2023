@@ -100,9 +100,16 @@ export class ShipController {
 
     update(dt: number) {
 
+        if (!this._ship.alive) return;
+
         this.updateMoving(dt);
         this.updateTurning(dt);
         this.updateFire(dt);
+
+        // check ship hp
+        if (this._ship.hp <= 0) {
+            this._ship.kill();
+        }
 
     }
 

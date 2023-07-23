@@ -1,13 +1,14 @@
 import { ShipController } from "../controls/ShipController";
 import { Config } from "../data/Config";
 import { GameData } from "../data/GameData";
+import { Params } from "../data/Params";
 import { DebugGui } from "../debug/DebugGui";
 import { GameEvents } from "../events/GameEvents";
 import { Asteroid } from "../objects/Asteriod";
 import { Bullet } from "../objects/Bullet";
 import { Energy } from "../objects/Energy";
 import { GameObject } from "../objects/GameObject";
-import { Ship } from "../objects/Ship";
+import { Ship, ShipEvents } from "../objects/Ship";
 import { Station } from "../objects/Station";
 import { LogMng } from "../utils/LogMng";
 import { MyMath } from "../utils/MyMath";
@@ -44,6 +45,8 @@ export class GameScene extends Phaser.Scene {
     // effects
     private _asteroidHitEffectEmitter;
     private _asteroidDestroyEffectEmitter;
+    // flags
+    private _isPause = true;
 
     constructor() {
         super({ key: 'GameScene' });
@@ -88,6 +91,7 @@ export class GameScene extends Phaser.Scene {
         this._objects.push(this._station);
 
         this._ship = new Ship(this, CONFIG.ship.startPos.x, CONFIG.ship.startPos.y, this._dummyObjects);
+        this._ship.once(ShipEvents.destroyed, this.onShipDestroy, this);
         this._objects.push(this._ship);
 
         this.cameras.main.centerOn(0, 0);
@@ -134,6 +138,11 @@ export class GameScene extends Phaser.Scene {
             let cost = this._station.upgradeCost;
             this._station.setLevel(this._station.level + 1);
             gd.energy -= cost;
+        }, this);
+
+        this._isPause = true;
+        GameEvents.getInstance().once(GameEvents.GUI_INTRO_COMPLETE, () => {
+            this._isPause = false;
         }, this);
 
     }
@@ -200,6 +209,33 @@ export class GameScene extends Phaser.Scene {
 
     }
 
+    private initDebug() {
+        if (!Params.isDebugMode) return;
+        const OBJ = {
+            shipLevelUp: () => {
+                this._ship.setLevel(this._ship.level + 1);
+            },
+            stationLevelUp: () => {
+                this._station.setLevel(this._station.level + 1);
+            },
+            addEnergy: () => {
+                GameData.getInstance().energy += 500;
+            },
+            damage50: () => {
+                this._ship.hit(50);
+            },
+            damage200: () => {
+                this._ship.hit(200);
+            }
+        }
+        let gui = DebugGui.getInstance().gui;
+        gui.add(OBJ, 'shipLevelUp');
+        gui.add(OBJ, 'stationLevelUp');
+        gui.add(OBJ, 'addEnergy');
+        gui.add(OBJ, 'damage50');
+        gui.add(OBJ, 'damage200');
+    }
+
     private destroyAsteroid(aAsteroidImage) {
         let asteroid = aAsteroidImage.object as Asteroid;
         let x = aAsteroidImage.x;
@@ -231,24 +267,7 @@ export class GameScene extends Phaser.Scene {
             this._objects.push(aster);
         }
     }
-    private initDebug() {
-        const OBJ = {
-            shipLevelUp: () => {
-                this._ship.setLevel(this._ship.level + 1);
-            },
-            stationLevelUp: () => {
-                this._station.setLevel(this._station.level + 1);
-            },
-            addEnergy: () => {
-                GameData.getInstance().energy += 500;
-            }
-        }
-        let gui = DebugGui.getInstance().gui;
-        gui.add(OBJ, 'shipLevelUp');
-        gui.add(OBJ, 'stationLevelUp');
-        gui.add(OBJ, 'addEnergy');
-    }
-
+    
     private onSceneShutdown() {
 
         GameEvents.getInstance().emit(GameEvents.GAME_CLOSE);
@@ -275,9 +294,19 @@ export class GameScene extends Phaser.Scene {
 
     }
 
+    private onShipDestroy() {
+        this._isPause = true;
+        GameEvents.getInstance().emit(GameEvents.SHOW_FINAL_DIALOG);
+        GameEvents.getInstance().once(GameEvents.GUI_FINAL_COMPLETE, () => {
+            this.scene.start('MenuScene');
+        }, this);
+    }
+
     update(allTime: number, dtMs: number) {
         // get dt in Sec
         let dt = dtMs * 0.001;
+
+        if (this._isPause) return;
 
         this._shipController?.update(dt);
 
@@ -297,6 +326,7 @@ export class GameScene extends Phaser.Scene {
         gd.upBtnsAvailable = shipDist <= 1000;
 
         // this._gui.update(dt);
+
 
     }
 

@@ -12,13 +12,14 @@ export class GameEvents extends Phaser.Events.EventEmitter {
     static readonly GAME_OPEN = 'GAME_OPEN';
     static readonly GAME_CLOSE = 'GAME_CLOSE';
 
-    // static readonly ENERGY_COLLECTED = 'ENERGY_COLLECTED';
-    // static readonly GUI_STATE_CAHNGE = 'GUI_STATE_CAHNGE';
+    static readonly SHOW_FINAL_DIALOG = 'SHOW_FINAL_DIALOG';
 
     static readonly GUI_MENU_PRESSED = 'GUI_MENU_PRESSED'
     static readonly GUI_TELEPORT_PRESSED = 'GUI_TELEPORT_PRESSED'
     static readonly GUI_STATION_UP = 'GUI_STATION_UP'
     static readonly GUI_SHIP_UP = 'GUI_SHIP_UP'
+    static readonly GUI_INTRO_COMPLETE = 'GUI_INTRO_COMPLETE'
+    static readonly GUI_FINAL_COMPLETE = 'GUI_FINAL_COMPLETE'
 
     private constructor() {
         super();

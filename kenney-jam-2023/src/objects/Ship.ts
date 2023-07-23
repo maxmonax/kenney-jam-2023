@@ -1,5 +1,7 @@
+import { HpBar } from "../gui/game/HpBar";
 import { GameScene } from "../scenes/GameScene";
 import { LogMng } from "../utils/LogMng";
+import { MyMath } from "../utils/MyMath";
 import { GameObject } from "./GameObject";
 
 const LEVELS = [
@@ -32,6 +34,12 @@ const LEVELS = [
     },
 ];
 
+const HP_DY = 70;
+
+export enum ShipEvents {
+    destroyed = 'destroyed'
+}
+
 export class Ship extends GameObject {
     private _scene: GameScene;
     private _parent;
@@ -41,10 +49,12 @@ export class Ship extends GameObject {
     private _fireDummy: Phaser.GameObjects.Container;
     private _fireTexture = 'effects/fire18';
     private _fireTargetScale = 0;
+    private _hpBar: HpBar;
+    private _hp = 100;
     image;
     // bulletTexture = 'effects/fire18';
     bulletTexture = 'bullets/laserBlue02';
-    hp = 100;
+    alive = true;
 
     constructor(scene: GameScene, x, y, parent) {
         super();
@@ -56,6 +66,7 @@ export class Ship extends GameObject {
         this.initHero(x, y);
         this.initFires();
         this.setLevel(1);
+        this.initHpBar();
     }
 
     private initHero(x, y) {
@@ -87,8 +98,24 @@ export class Ship extends GameObject {
         }
     }
 
+    private initHpBar() {
+        if (!this._hpBar) {
+            this._hpBar = new HpBar(this._scene, this.image.x, this.image.y + HP_DY, 100, 10, 2, 0xcc0000);
+        }
+        this._hpBar.alpha = 0;
+        this._parent.add(this._hpBar);
+    }
+
     private getFrameByLevel(aLevel: number): string {
         return `hero/level_${this._level}`;
+    }
+    
+    public get hp(): number {
+        return this._hp;
+    }
+
+    public set hp(v: number) {
+        this._hp = v;
     }
 
     public get level(): number {
@@ -113,6 +140,14 @@ export class Ship extends GameObject {
 
     isMaxLevel(): boolean {
         return this._level == LEVELS.length;
+    }
+
+    maxHp(): number {
+        return LEVELS[this._level - 1].hp;
+    }
+
+    isMaxHp(): boolean {
+        return this._hp >= this.maxHp();
     }
 
     getFireOffsets(): any[] {
@@ -143,33 +178,51 @@ export class Ship extends GameObject {
 
     hit(aDamage: number) {
         LogMng.debug(`Ship Damage: ${aDamage}`);
-        this.hp -= aDamage;
+        this._hp -= aDamage;
     }
 
     kill() {
         // if (ISINFOCUS) {
-        this._scene.sound.play('boom', { volume: 1 });
+        // this._scene.sound.play('boom', { volume: 1 });
         // }
-        this.image.alive = false;
-        // this.turbine.destroy();
-        // this.body.unShield();
+        this.alive = false;
+        this.destroyFires();
+
+        let expFrame = `particles/scorch_0${MyMath.randomIntInRange(1, 2)}`;
+        let particle = this._scene.add.image(this.image.x, this.image.y, 'game', expFrame);
+        // particle.tint = 0xb22222;
+        // particle.tint = 0xf6f052;
+        // particle.tint = 0xffd34b;
+        // particle.tint = 0xffa44b;
+        particle.tint = 0xff7e4b;
+        particle.scale = 2;
         this._scene.tweens.add({
-            targets: [this.image],
+            targets: particle,
             alpha: 0,
-            scale: 0,
-            x: this.image.x - 100 + 200 * Math.random(),
-            y: this.image.y - 100 + 200 * Math.random(),
-            rotation: -1 + 2 * Math.random(),
-            duration: 1000,
-            ease: 'Circ.Out',
+            scale: 0.5,
+            // rotation: MyMath.randomInRange(-Math.PI * 2, Math.PI * 2),
+            duration: 300,
+            ease: 'Sine.InOut',
             onComplete: () => {
-                this.image.destroy();
-                // this.protection.destroy();
+                particle.destroy();
+                this.emit(ShipEvents.destroyed);
             }
         });
-        if (this.image.shoot) {
-            this.image.shoot.remove();
-        }
+
+        this._scene.tweens.add({
+            targets: this._hpBar,
+            alpha: 0,
+            scale: 0,
+            duration: 300,
+            ease: 'Sine.InOut',
+            onComplete: () => {
+                this._hpBar.destroy();
+                this._hpBar = null;
+            }
+        });
+
+        this.image.destroy();
+
     }
 
     update(dt: number) {
@@ -178,6 +231,18 @@ export class Ship extends GameObject {
         this._fireDummy.x = this.image.x;
         this._fireDummy.y = this.image.y;
         this._fireDummy.rotation = this.image.rotation;
+
+        if (this._hpBar) {
+            if (this.image.body) {
+                this._hpBar.x = this.image.body.x + this.image.body.width / 2;
+                this._hpBar.y = this.image.body.y + this.image.body.height / 2 + HP_DY;
+            }
+            this._hpBar.progress = this._hp / this.maxHp();
+            this._hpBar.update(dt);
+
+            let targetAlpha = this.isMaxHp() ? 0 : 1;
+            this._hpBar.alpha += (targetAlpha - this._hpBar.alpha) * dt;
+        }
 
         for (let i = 0; i < this._fireImages.length; i++) {
             const img = this._fireImages[i];

@@ -5,6 +5,7 @@ import { FrontEvents } from "../../events/FrontEvents";
 import { GameEvents } from "../../events/GameEvents";
 import { GameGuiScene } from "../../scenes/GameGuiScene";
 import { LogMng } from "../../utils/LogMng";
+import { GuiDialog, GuiDialogEvents } from "./GuiDialog";
 
 export enum GameSceneEvents {
     homeClick = 'homeClick'
@@ -25,6 +26,8 @@ export class GameGui extends Phaser.Events.EventEmitter {
     private _stationUpText: Phaser.GameObjects.Text;
     private _shipUpText: Phaser.GameObjects.Text;
     private _teleportText: Phaser.GameObjects.Text;
+
+    private _guiDialog: GuiDialog;
 
 
     constructor(scene: GameGuiScene, parent: Phaser.GameObjects.Container) {
@@ -113,6 +116,9 @@ export class GameGui extends Phaser.Events.EventEmitter {
             gameEvents.emit(GameEvents.GUI_MENU_PRESSED);
         });
 
+        this._guiDialog = new GuiDialog(this._scene, Config.GW_HALF, Config.GH_HALF);
+        this._parent.add(this._guiDialog);
+        
         this.onResize();
         FrontEvents.getInstance().addListener(FrontEvents.EVENT_WINDOW_RESIZE, this.onResize, this);
 
@@ -120,6 +126,12 @@ export class GameGui extends Phaser.Events.EventEmitter {
         gd.on(GDEvents.energyChange, this.updateEnergy, this);
         gd.on(GDEvents.btnStateChange, this.onBtnStateChange, this);
         
+    }
+
+    private onIntroComplete() {
+        this._guiDialog.hideIntro();
+        GameEvents.getInstance().on(GameEvents.SHOW_FINAL_DIALOG, this.showFinal, this);
+        GameEvents.getInstance().emit(GameEvents.GUI_INTRO_COMPLETE);
     }
 
     private onBtnStateChange() {
@@ -193,9 +205,21 @@ export class GameGui extends Phaser.Events.EventEmitter {
         }
     }
 
+    private showFinal() {
+        this._guiDialog.showFinal();
+        this._guiDialog.once(GuiDialogEvents.finalComplete, () => {
+            this._guiDialog.hideFinal();
+            // setTimeout(() => {
+                GameEvents.getInstance().emit(GameEvents.GUI_FINAL_COMPLETE);
+            // }, 100);
+        }, this);
+    }
+
     init() {
         this.updateEnergy();
         this.updateTeleportBtn();
+        this._guiDialog.showIntro();
+        this._guiDialog.once(GuiDialogEvents.introComplete, this.onIntroComplete, this);
     }
 
     private onResize() {

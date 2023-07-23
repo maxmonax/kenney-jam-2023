@@ -950,6 +950,40 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">game/particles/magic_05.png</key>
+            <key type="filename">game/particles/scorch_01.png</key>
+            <key type="filename">game/particles/scorch_02.png</key>
+            <key type="filename">game/particles/scorch_03.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>128,128,256,256</rect>
+                <key>scale9Paddings</key>
+                <rect>128,128,256,256</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/pers/robot_idle.png</key>
+            <key type="filename">game/pers/robot_wide.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>48,64,96,128</rect>
+                <key>scale9Paddings</key>
+                <rect>48,64,96,128</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/powerup.png</key>
             <key type="filename">game/ui/powerupBlue.png</key>
             <key type="filename">game/ui/powerupGreen.png</key>
@@ -1075,6 +1109,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">game/ui/black.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>3,3,5,5</rect>
+                <key>scale9Paddings</key>
+                <rect>3,3,5,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/ui/board/arrow_counterclockwise.png</key>
             <key type="filename">game/ui/board/arrow_diagonal_cross.png</key>
             <key type="filename">game/ui/board/hourglass.png</key>
@@ -1124,6 +1173,21 @@
                 <rect>18,17,35,34</rect>
                 <key>scale9Paddings</key>
                 <rect>18,17,35,34</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/ui/space_inlay.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,11,22,22</rect>
+                <key>scale9Paddings</key>
+                <rect>11,11,22,22</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -16,14 +16,9 @@ export class GameGuiScene extends Phaser.Scene {
         this._dummyGui = this.add.container();
 
         //  Grab a reference to the Game Scene
-        let gameScene = this.scene.get('GameScene');
-
-        //  Listen for events from it
-        gameScene.events.on('createGui', () => {
-            // gameScene.setGui
-        }, this);
-        gameScene.events.on('destroyGui', () => {
-        }, this);
+        // let gameScene = this.scene.get('GameScene');
+        // gameScene.events.on('createGui', () => {}, this);
+        // gameScene.events.on('destroyGui', () => {}, this);
 
         GameEvents.getInstance().on(GameEvents.GAME_OPEN, this.onGameOpen, this);
         GameEvents.getInstance().on(GameEvents.GAME_CLOSE, this.onGameClose, this);
